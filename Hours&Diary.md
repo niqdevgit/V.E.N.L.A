@@ -7,4 +7,4 @@
 | 0 | tbd | |
 
 ## 30.11.2023
-Made github repo.
+Made github repo. Wrote down some initial plan in readme.
