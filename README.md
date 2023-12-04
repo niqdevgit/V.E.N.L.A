@@ -6,7 +6,7 @@ Content on site is for finnish audience._
 
 ## Valitse Elintarvike Naaraallesi Lyhyessä Ajassa
 
-Live preview can be seen here: (link coming soon)
+Live preview can be seen [here](https://venla.onrender.com/)
 
 Hours and devlog [Here](https://github.com/niqdevgit/V.E.N.L.A/blob/main/Hours%26Diary.md)
 
