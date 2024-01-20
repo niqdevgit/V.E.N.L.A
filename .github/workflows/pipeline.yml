@@ -26,12 +26,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: e2e tests #missing
+      - name: e2e tests
         uses: cypress-io/github-action@v5
         with:
           command: npm run test:e2e
-          start: npm run start-prod
-          wait-on: http://localhost:5000
+          start: npm run start-prod #conf
+          wait-on: http://localhost:5000 #conf
 
       - name: Deploy #missing
         if: ${{ github.event_name == 'push' }}
