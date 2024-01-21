@@ -48,9 +48,10 @@ jobs:
         run: |
           cd frontend
           npm run test:e2e --config baseUrl=http://localhost:3001
-#
-#      - name: Deploy #missing
-#        if: ${{ github.event_name == 'push' }}
+
+      - name: Deploy
+        if: ${{ github.event_name == 'push' }}
+        run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
 #      - uses: superfly/flyctl-actions/setup-flyctl@master
 #        uses: actions/checkout@v3
 #      - run: flyctl deploy --remote-only
