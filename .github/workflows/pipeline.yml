@@ -18,8 +18,9 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: cd frontend
-        run: npm install  
+        run: |
+          cd frontend
+          npm install  
 
 #      - name: Check style
 #        run: npm run lint
