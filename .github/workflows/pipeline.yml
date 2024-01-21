@@ -58,7 +58,7 @@ jobs:
         if: success()
         with:
           severity: info
-          text: "@Niq deployment was succesfull"
+          text: "<@${{ secrets.DISCORD_NIQ_USER_ID }}> deployment was succesfull"
           description: "to https://venla.onrender.com/ by ${{ github.event.head_commit.author.username }}"
           details: Test Succeeded!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
@@ -68,7 +68,7 @@ jobs:
         if: failure()
         with:
           severity: error
-          text: "@Niq Build failed"
+          text: "<@${{ secrets.DISCORD_NIQ_USER_ID }}> Build failed"
           description: "commit ${{ github.event.head_commit.url }} by ${{ github.event.head_commit.author.username }} broke the build 💀"
           details: Test Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
