@@ -52,6 +52,7 @@ jobs:
 #            npm run test:e2e
 #          start: npm run start
           wait-on: http://localhost:3001
+        working-directory: frontend
 #
 #      - name: Deploy #missing
 #        if: ${{ github.event_name == 'push' }}
