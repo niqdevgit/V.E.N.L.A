@@ -23,7 +23,10 @@ jobs:
           npm install  
 
       - name: Check style
-        run: npm run lint
+        run: |
+          cd frontend
+          npm run lint
+        
 
 #      - name: Build
 #        run: npm run build
