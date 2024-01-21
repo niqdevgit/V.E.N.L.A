@@ -45,14 +45,9 @@ jobs:
           sleep 1
 
       - name: e2e tests
-        uses: cypress-io/github-action@v6
-        with:
-#          command: |
-#            pwd
-#            npm run test:e2e
-#          start: npm run start
-          wait-on: http://localhost:3001
-        working-directory: frontend
+        run: |
+          cd frontend
+          npm run test:e2e --config baseUrl=http://localhost:3001
 #
 #      - name: Deploy #missing
 #        if: ${{ github.event_name == 'push' }}
