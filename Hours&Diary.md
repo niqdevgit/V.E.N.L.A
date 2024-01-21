@@ -18,4 +18,4 @@ Made frontend and backend skeletons. Also deployed on render
 Added router and some user handling. 
 
 ## 21.1.2024
-Yesterday and mainly today i worked on CI/CD pipeline. This was done for the FullStack cource part 11.
+Yesterday and mainly today i worked on CI/CD pipeline. This was done for the FullStack course part 11.
