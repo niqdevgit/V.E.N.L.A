@@ -49,7 +49,7 @@ jobs:
           command: |
             pwd
             npm run test:e2e
-          start: npm run start
+#          start: npm run start
           wait-on: http://localhost:3001
 #
 #      - name: Deploy #missing
