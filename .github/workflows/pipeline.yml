@@ -73,16 +73,16 @@ jobs:
           details: Test Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
-#  tag_release: #missing
-#    needs: [simple_deployment_pipeline]
-#    if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
-#    runs-on: ubuntu-20.04
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          fetch-depth: '0'
-#      - name: Bump version and push tag
-#        uses: anothrNick/github-tag-action@1.64.0
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          DEFAULT_BUMP: patch
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.64.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
