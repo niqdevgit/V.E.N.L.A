@@ -17,10 +17,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies
+      - name: Install frontend dependencies
+        run: |
+          cd backend
+          npm install  
+
+      - name: Install backend dependencies
         run: |
           cd frontend
-          npm install  
+          npm install 
 
       - name: Check style
         run: |
