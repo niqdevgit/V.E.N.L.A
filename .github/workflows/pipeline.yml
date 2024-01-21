@@ -38,14 +38,15 @@ jobs:
           cd frontend
           npm run build
 
-      - name: Start Backend
-        working-directory: backend
-        run: npm run start
+#      - name: Start Backend
+#        working-directory: backend
+#        run: npm run start
 
       - name: e2e tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
-          command: npm run test:e2e
+#          command: npm run test:e2e
+          project: ./backend
           start: npm run start
           wait-on: http://localhost:3001
 #
