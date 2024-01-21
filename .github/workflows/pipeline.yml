@@ -37,6 +37,7 @@ jobs:
         run: |
           cd frontend
           npm run build
+          pwd
 
 #      - name: Start Backend
 #        working-directory: backend
