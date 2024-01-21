@@ -19,12 +19,12 @@ jobs:
           node-version: '20'
       - name: Install frontend dependencies
         run: |
-          cd backend
+          cd frontend
           npm install  
 
       - name: Install backend dependencies
         run: |
-          cd frontend
+          cd backend
           npm install 
 
       - name: Check style
@@ -41,7 +41,8 @@ jobs:
       - name: Start Backend
         run: |
           cd backend
-          npm run start
+          npm run start &
+          sleep 1
 
       - name: e2e tests
         uses: cypress-io/github-action@v6
