@@ -6,6 +6,7 @@
 | 2 | 1 | skeleton done | [Link](#4.12.2023) |
 | 4 | 2 | Added router | [Link](#21.12.2023) |
 | 10 | 6 | CI/CD work | [Link](#21.1.2024) |
+| 13 | 3 | Container work | [Link](#24.1.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -19,3 +20,6 @@ Added router and some user handling.
 
 ## 21.1.2024
 Yesterday and mainly today i worked on CI/CD pipeline. This was done for the FullStack course part 11.
+
+## 24.1.2024
+Did some container work for the Fullstack course part 12. Did not manage to get it to work as intended. Will continue soon.
