@@ -6,8 +6,6 @@ services:
     build: 
       context: ./frontend
       dockerfile: dev.Dockerfile
-    volumes:
-      - ./frontend:/usr/src/app
     container_name: dev-frontend
 
   backend:

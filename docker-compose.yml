@@ -6,8 +6,6 @@ services:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
-    volumes:
-      - ./frontend:/usr/src/app
     container_name: frontend
 
   backend:
@@ -17,7 +15,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/usr/src/app
-      - ./temp:/mnt
     container_name: backend
     ports:
       - 3001:3001
