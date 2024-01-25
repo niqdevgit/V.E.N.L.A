@@ -7,5 +7,6 @@ COPY --chown=node:node . .
 RUN npm ci
   
 USER node
+RUN chmod +x ./getBuild.sh
 
-CMD npm start
+CMD ["sh", "-c", "./getBuild.sh && npm start"]
