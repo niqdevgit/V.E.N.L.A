@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: dev-frontend
+    build: 
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    container_name: dev-frontend
+
+  backend:
+    image: dev-backend
+    build:
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./backend:/usr/src/app
+    container_name: dev-backend
+    ports:
+      - 3001:3001
+      
