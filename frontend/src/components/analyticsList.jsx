@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+// eslint-disable-next-line react/prop-types
 const AnalyticsList = ({foods}) => {
 
     const [sortByDate, setSortByDate] = useState(true)

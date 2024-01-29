@@ -1,5 +1,4 @@
-import MainTree from "./mainTree";
-import Analytics from "./analytics";
+import MainTree from "./mainTree"
 
 // eslint-disable-next-line react/prop-types
 const MainMenu = ({user,setUser}) => {
@@ -11,7 +10,7 @@ const MainMenu = ({user,setUser}) => {
     const handleVisitorOutClick = () => {
       setUser(null)
   }
-  
+
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>
