@@ -8,6 +8,7 @@
 | 10 | 6 | CI/CD work | [Link](#21.1.2024) |
 | 13 | 3 | Container work | [Link](#24.1.2024) |
 | 18 | 5 | More container work | [Link](#25.1.2024) |
+| 27 | 9 | Progress on multiple fronts | [Link](#29.1.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -27,3 +28,12 @@ Did some container work for the Fullstack course part 12. Did not manage to get 
 
 ## 25.1.2024
 I did more work trying to configure the Docker containers. I am tasked to host my production version on containers. This has turned out to be a major challenge for me. But I managed to do it with a shell script and Apache.
+
+## 29.1.2024
+I made huge progress today. I discovered a kind of chicken-and-egg dilemma. I have a preference for working on the frontend, but it requires a backend. However, I realized that focusing more on coding and less on worrying will lead me in the right direction.
+
+Additionally, I made a minor change to my project title. Originally, I had the word "naaras" in it. However, my own "naaras" suggested using something softer, like "neito." Therefore, the project is now titled "Valitse elintarvike neidollesi lyhyessä ajassa."
+
+I also identified a need for more planning in my food selection logic. My strategy of doing first and thinking later is proving not to be as effective as I had hoped. I will definitely dedicate some time to improving this aspect soon.
+
+Second also: I found out that my CI/CD pipeline has an issue. The render will take my build files from the latest commit. So, my build step in the pipeline is useless. Well, let's see if I can fix that. Kinda shame to realize I have made such an oversight. But I think this is called something like learning.
