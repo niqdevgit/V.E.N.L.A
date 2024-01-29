@@ -6,7 +6,7 @@ mongoose.set('strictQuery', false)
 const url = process.env.MONGODB_URI
 
 
-console.log('connecting to', url)
+console.log('connecting to mongo')
 mongoose.connect(url)
 
   .then(result => {
@@ -19,6 +19,10 @@ mongoose.connect(url)
 const foodSchema = new mongoose.Schema({
   food: String,
   date: String,
+  user: {   
+    type: mongoose.Schema.Types.ObjectId,    
+    ref: 'User'  
+    }
 })
 
 foodSchema.set('toJSON', {

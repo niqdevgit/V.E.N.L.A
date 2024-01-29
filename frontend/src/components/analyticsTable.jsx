@@ -1,10 +1,10 @@
-// eslint-disable-next-line react/prop-types
+import PropTypes from 'prop-types'
+
 const AnalyticsTable = ({foods}) =>{
 
     const calculateCounts = () => {
         const foodCounts = {}
 
-        // eslint-disable-next-line react/prop-types
         foods.forEach((food) => {
             const { food: foodType } = food
             foodCounts[foodType] = (foodCounts[foodType] || 0) + 1
@@ -36,6 +36,16 @@ const AnalyticsTable = ({foods}) =>{
             </table>
         </div>
     )
+}
+
+
+AnalyticsTable.propTypes = {
+    foods: PropTypes.arrayOf(
+        PropTypes.shape({
+            food: PropTypes.string.isRequired,
+            
+        })
+    ).isRequired
 }
 
 export default AnalyticsTable

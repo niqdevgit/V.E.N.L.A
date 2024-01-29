@@ -7,6 +7,10 @@ require('dotenv').config()
 app.use(cors())
 app.use(express.static('dist'))
 const Food = require('./models/food')
+const User = require('./models/user')
+const usersRouter = require('./controllers/users')
+
+app.use('/api/users', usersRouter)
 
 app.get('/api/foods', (request, response) => {
   Food.find({}).then(foods => {
@@ -29,6 +33,11 @@ app.post('/api/foods', (req, res) => {
   food.save().then(savedFood => {
     res.json(savedFood)
   })
+})
+
+usersRouter.get('/', async (request, response) => {
+  const users = await User.find({})
+  response.json(users)
 })
 
 app.get('*', (req, res) => {
