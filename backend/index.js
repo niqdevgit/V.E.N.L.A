@@ -13,6 +13,8 @@ app.get('/api/foods', (request, response) => {
   response.json(foods)
 })
 
+
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 });
