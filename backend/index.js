@@ -2,45 +2,33 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
-//const foods = require('./data')
 app.use(express.json())
-
+require('dotenv').config()
 app.use(cors())
 app.use(express.static('dist'))
-
-let foods = [
-  {
-    id: 1,
-    food: "Pitsa",
-    date: "20.1.2024"
-  },
-  {
-    id: 2,
-    food: "Pitsa",
-    date: "13.1.2024"
-  },
-  {
-    id: 3,
-    food: "Kebab",
-    date: "21.1.2024"
-  }
-]
+const Food = require('./models/food')
 
 app.get('/api/foods', (request, response) => {
-  response.json(foods)
+  Food.find({}).then(foods => {
+    response.json(foods)
+  })
 })
 
 app.post('/api/foods', (req, res) => {
-  const maxId = foods.length > 0
-    ? Math.max(...foods.map(n => n.id)) 
-    : 0
+  const body = req.body
+  console.log(body)
+  if (body.food === undefined) {
+    return res.status(400).json({ error: 'food missing' })
+  }
 
-  const food = req.body
-  food.id = maxId + 1
+  const food = new Food({
+    food: body.food,
+    date: body.date,
+  })
 
-  foods = foods.concat(food)
-  
-  res.json(food)
+  food.save().then(savedFood => {
+    res.json(savedFood)
+  })
 })
 
 app.get('*', (req, res) => {
