@@ -1,5 +1,5 @@
 import MainTree from "./mainTree";
-
+import Analytics from "./analytics";
 
 // eslint-disable-next-line react/prop-types
 const MainMenu = ({user,setUser}) => {
@@ -17,6 +17,7 @@ const MainMenu = ({user,setUser}) => {
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>
+      <i>Valitse Elintarvike Neidollesi Lyhyessä Ajassa</i>
       {user ? (
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center' }} >
@@ -24,6 +25,7 @@ const MainMenu = ({user,setUser}) => {
                   <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
                   </div>
                     <MainTree />
+                    <Analytics />
                     
                 </div>
             ) : (
