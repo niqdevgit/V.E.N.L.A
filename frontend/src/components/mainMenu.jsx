@@ -1,17 +1,38 @@
+import MainTree from "./mainTree";
+import Analytics from "./analytics";
+
 // eslint-disable-next-line react/prop-types
 const MainMenu = ({user,setUser}) => {
   
-    const handleClick = () => {
+    const handleVisitorClick = () => {
         setUser('Vieras')
     }
-    console.log(user)
+
+    const handleVisitorOutClick = () => {
+      setUser(null)
+  }
+  
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>
-      <p>Welcome, {user}!</p>
-      <p>Jotain lorem ipsumia mikä on sovelluksen idea.....</p>
-    <button><a href="/kirjaudu">Kirjaudu</a></button><button onClick={handleClick}>Käytä vieraana💀</button>
-      {/*if user is null, we suggest login. otherwise functional buttons here  */}
+      <i>Valitse Elintarvike Neidollesi Lyhyessä Ajassa</i>
+      {user ? (
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center' }} >
+                  <p style={{ marginRight: '15px' }}>Hei,{user}!</p>  
+                  <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
+                  </div>
+                    <MainTree />
+                    <a href="/tilastot">Katso tilastoja</a>
+                    
+                </div>
+            ) : (
+                <div>
+                    <p>Jotain lorem ipsumia mikä on sovelluksen idea.....</p>
+                    <button><a href="/kirjaudu">Kirjaudu</a></button>
+                    <button onClick={handleVisitorClick}>Käytä vieraana💀</button>
+                </div>
+            )}
     </div>
   );
 };
