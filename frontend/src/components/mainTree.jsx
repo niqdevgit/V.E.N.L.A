@@ -4,6 +4,10 @@ const MainTree = () => {
     const [step, setStep] = useState(0)
 
     
+    const reset = () => {
+        setStep(0)
+      }
+
     const sizeSelection = () => {
         setStep(1)
       }
@@ -41,6 +45,7 @@ const MainTree = () => {
     <div>
         <button onClick={smallSelection}>Pieni</button>
         <button onClick={largeSelection}>Iso</button>
+        <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
     </div>
     )
   }
@@ -51,6 +56,7 @@ const MainTree = () => {
         <button onClick={pizzaSelection}>Pitsa</button>
         <button onClick={kebabSelection}>Kebab</button>
         <button onClick={friesSelection}>Ranskalaiset</button>
+        <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
     </div>
     )
   }
@@ -59,6 +65,7 @@ const MainTree = () => {
     return (
     <div>
         <p>Älä syö pineen nälkään</p>
+        <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
     </div>
     )
   }
