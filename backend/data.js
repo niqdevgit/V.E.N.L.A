@@ -2,17 +2,17 @@ let foods = [
   {
     id: 1,
     food: "Pitsa",
-    date: "2024-01-20"
+    date: "20.1.2024"
   },
   {
     id: 2,
     food: "Pitsa",
-    date: "2024-01-13"
+    date: "13.1.2024"
   },
   {
     id: 3,
     food: "Kebab",
-    date: "2024-01-21"
+    date: "21.1.2024"
   }
 ]
 

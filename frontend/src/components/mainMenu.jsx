@@ -11,9 +11,7 @@ const MainMenu = ({user,setUser}) => {
     const handleVisitorOutClick = () => {
       setUser(null)
   }
-
-
-    console.log(user)
+  
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>
@@ -25,7 +23,7 @@ const MainMenu = ({user,setUser}) => {
                   <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
                   </div>
                     <MainTree />
-                    <Analytics />
+                    <a href="/tilastot">Katso tilastoja</a>
                     
                 </div>
             ) : (

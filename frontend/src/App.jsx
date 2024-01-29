@@ -5,6 +5,7 @@ import NotFound from './components/notFound'
 import {
   Routes, Route,
 } from 'react-router-dom'
+import Analytics from './components/analytics'
 
 function App() {
   const [user, setUser] = useState(null) 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/" element={<MainMenu user={user} setUser={setUser}/>} />
+        <Route path='/tilastot' element={<Analytics />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
