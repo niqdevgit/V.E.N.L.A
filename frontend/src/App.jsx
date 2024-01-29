@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MainMenu from "./components/mainMenu"
 import SignInPage from "./components/signIn"
 import NotFound from './components/notFound'
@@ -8,6 +8,10 @@ import {
 
 function App() {
   const [user, setUser] = useState(null) 
+
+  useEffect(() => {
+    document.title = "V.E.N.L.A";
+  }, []);
 
   return (
     <div>
