@@ -4,7 +4,7 @@ FullStackOpen course project work
 _Project will be documented and made in english.
 Content on site is for finnish audience._
 
-## Valitse Elintarvike Naaraallesi Lyhyessä Ajassa
+## Valitse Elintarvike Neidollesi Lyhyessä Ajassa
 
 Live preview can be seen [here](https://venla.onrender.com/)
 
