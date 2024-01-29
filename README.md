@@ -17,5 +17,5 @@ Here is a list of things i want to implement:
   * Login and user controll
   * React router
   * Ai api just for the hype
-  * Style will be Neo-Brutalism
+  * Style will be Neo-Brutalism and dark theme
   * Pwa functionality

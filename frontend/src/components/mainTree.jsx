@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const MainTree = () => {
     const [step, setStep] = useState(0)
-
+    const [finalSelection, setFinalSelection] = useState('')
     
     const reset = () => {
         setStep(0)
@@ -22,10 +22,12 @@ const MainTree = () => {
 
       const pizzaSelection = () => {
         setStep(3)
+        setFinalSelection('Pitsa')
       }
 
       const kebabSelection = () => {
         setStep(3)
+        setFinalSelection('Kebab')
       }
 
       const friesSelection = () => {
