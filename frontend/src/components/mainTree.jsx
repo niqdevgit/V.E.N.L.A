@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const MainTree = () => {
     const [step, setStep] = useState(0)
@@ -21,17 +22,35 @@ const MainTree = () => {
       }
 
       const pizzaSelection = () => {
-        setStep(3)
+        setStep(4)
         setFinalSelection('Pitsa')
       }
 
       const kebabSelection = () => {
-        setStep(3)
+        setStep(4)
         setFinalSelection('Kebab')
       }
 
       const friesSelection = () => {
         setStep(3)
+      }
+
+      const saveData = () => {
+        const today = new Date().toLocaleDateString()
+        
+
+        const foodObject = {
+          food: finalSelection,
+          date: today,
+        }
+      
+        axios    
+        .post('http://localhost:3001/api/foods', foodObject)    
+        .then(response => {      
+          console.log(response)    
+        })
+
+        setStep(0)
       }
 
     if(step === 0) {
@@ -71,6 +90,17 @@ const MainTree = () => {
     </div>
     )
   }
+
+  if(step === 4) {
+    return (
+    <div>
+        <p>Tallennetaanko valinta?</p>
+        <button style={{ marginLeft: '15px' }} onClick={saveData}>Tallenna</button>
+        <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
+    </div>
+    )
+  }
+
 }
 
 export default MainTree
