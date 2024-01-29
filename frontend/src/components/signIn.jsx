@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState } from "react"
+import PropTypes from 'prop-types'
 
-
-// eslint-disable-next-line react/prop-types
 const SignInPage = ({user,setUser}) => {
     const [username, setUsername] = useState('')
   
@@ -29,5 +28,10 @@ const SignInPage = ({user,setUser}) => {
     </div>
   );
 };
+
+SignInPage.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.func,
+}
 
 export default SignInPage;

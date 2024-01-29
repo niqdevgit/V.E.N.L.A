@@ -1,6 +1,6 @@
 import MainTree from "./mainTree"
+import PropTypes from 'prop-types'
 
-// eslint-disable-next-line react/prop-types
 const MainMenu = ({user,setUser}) => {
   
     const handleVisitorClick = () => {
@@ -33,7 +33,12 @@ const MainMenu = ({user,setUser}) => {
                 </div>
             )}
     </div>
-  );
-};
+  )
+}
 
-export default MainMenu;
+MainMenu.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.func,
+}
+
+export default MainMenu

@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
-// eslint-disable-next-line react/prop-types
 const AnalyticsList = ({foods}) => {
 
     const [sortByDate, setSortByDate] = useState(true)
@@ -37,5 +37,15 @@ const AnalyticsList = ({foods}) => {
         </div>
     )
 }
+
+AnalyticsList.propTypes = {
+    foods: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        food: PropTypes.string,
+        date: PropTypes.string,
+      })
+    )
+  }
 
 export default AnalyticsList
