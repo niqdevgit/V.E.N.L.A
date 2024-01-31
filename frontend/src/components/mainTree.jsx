@@ -35,6 +35,11 @@ const MainTree = () => {
         setStep(3)
       }
 
+      let token = null
+      
+      const setToken = newToken => {
+        token = `Bearer ${newToken}`
+      }
       const saveData = () => {
         const today = new Date().toLocaleDateString()
         
@@ -44,8 +49,12 @@ const MainTree = () => {
           date: today,
         }
       
+        const config = {    
+          headers: { Authorization: token },  
+        }
+
         axios    
-        .post('http://localhost:3001/api/foods', foodObject)    
+        .post('http://localhost:3001/api/foods', foodObject, config)    
         .then(response => {      
           console.log(response)    
         })

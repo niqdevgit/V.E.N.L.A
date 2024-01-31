@@ -1,6 +1,7 @@
 import { useState } from "react"
 import PropTypes from 'prop-types'
 import loginService from '../services/login'
+import MainTree from "./mainTree"
 
 const SignInPage = ({user,setUser}) => {
     const [username, setUsername] = useState('')
@@ -16,7 +17,12 @@ const SignInPage = ({user,setUser}) => {
         username,
         password,
       })
+
+      window.localStorage.setItem(        
+        'loggedappUser', JSON.stringify(user)      
+      ) 
       
+      MainTree.setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
@@ -26,12 +32,9 @@ const SignInPage = ({user,setUser}) => {
       setTimeout(() => {
         setErrorMessage(null)
       }, 5000)
-    }
-    
-      
+    } 
     }
 
-  console.log(username)
   return (
     <div className="sign-in-page">
       <h2>Sign In</h2>

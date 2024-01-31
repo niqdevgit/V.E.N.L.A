@@ -2,7 +2,7 @@ import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
 
 const MainMenu = ({user,setUser}) => {
-  
+
     const handleVisitorClick = () => {
         setUser('Vieras')
     }
