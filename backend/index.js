@@ -10,6 +10,15 @@ const Food = require('./models/food')
 const User = require('./models/user')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+const jwt = require('jsonwebtoken')
+
+const getTokenFrom = request => {  
+  const authorization = request.get('authorization')  
+  if (authorization && authorization.startsWith('Bearer ')) {    
+    return authorization.replace('Bearer ', '')  
+  }  
+return null
+}
 
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
@@ -24,12 +33,18 @@ app.get('/api/foods', (request, response) => {
 
 app.post('/api/foods', async (req, res) => {
   const body = req.body
-  console.log(body)
+  const decodedToken = jwt.verify(getTokenFrom(req),
+  process.env.SECRET)
+
+  if (!decodedToken.id) {
+    return response.status(401).json({ error: 'token invalid' })  
+  }  
+
+  const user = await User.findById(decodedToken.id)
+  
   if (body.food === undefined) {
     return res.status(400).json({ error: 'food missing' })
   }
-
-  const user = await User.findById(body.userId)
 
   const food = new Food({
     food: body.food,
