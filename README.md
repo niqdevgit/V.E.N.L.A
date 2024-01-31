@@ -14,6 +14,7 @@ App idea is to help you to pick food for female.
 
 Here is a list of things i want to implement:
   * Basic FullStack stuff (frontend, backend, database)
+  * Api Update and remove
   * Login and user controll
   * React router
   * Ai api just for the hype

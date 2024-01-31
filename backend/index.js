@@ -59,10 +59,7 @@ app.post('/api/foods', async (req, res) => {
   res.json(savedFood)
 })
 
-usersRouter.get('/', async (request, response) => {
-  const users = await User.find({})
-  response.json(users)
-})
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
