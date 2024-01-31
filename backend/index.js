@@ -18,21 +18,25 @@ app.get('/api/foods', (request, response) => {
   })
 })
 
-app.post('/api/foods', (req, res) => {
+app.post('/api/foods', async (req, res) => {
   const body = req.body
-  console.log(body)
   if (body.food === undefined) {
     return res.status(400).json({ error: 'food missing' })
   }
 
+  const user = await User.findById(body.userId)
+
   const food = new Food({
     food: body.food,
     date: body.date,
+    user: user ? user._id : '0000'  //temporary fix for visitor. Orginal line -> user: user._id
   })
 
-  food.save().then(savedFood => {
-    res.json(savedFood)
-  })
+  const savedFood = await food.save()
+  user.foods = user.foods.concat(savedFood._id)
+  await user.save()
+  
+  res.json(savedFood)
 })
 
 usersRouter.get('/', async (request, response) => {
