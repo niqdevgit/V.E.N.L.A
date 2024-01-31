@@ -9,6 +9,7 @@
 | 13 | 3 | Container work | [Link](#24.1.2024) |
 | 18 | 5 | More container work | [Link](#25.1.2024) |
 | 27 | 9 | Progress on multiple fronts | [Link](#29.1.2024) |
+| 32 | 5 | User and token handling | [Link](#31.1.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -37,3 +38,8 @@ Additionally, I made a minor change to my project title. Originally, I had the w
 I also identified a need for more planning in my food selection logic. My strategy of doing first and thinking later is proving not to be as effective as I had hoped. I will definitely dedicate some time to improving this aspect soon.
 
 Second also: I found out that my CI/CD pipeline has an issue. The render will take my build files from the latest commit. So, my build step in the pipeline is useless. Well, let's see if I can fix that. Kinda shame to realize I have made such an oversight. But I think this is called something like learning.
+
+## 31.1.2024
+I made progress on user handling on the backend. I included the authentication tokens as well. I began to work on frontend functionalities. Due to a lack of hours in a day, I will continue my work later.
+
+I had an interesting battle with Vite. The Vite builder made me an index.html file that had some SVG resource by default. I have cleared my project from default stuff, so I got a console error that it is missing. After a long and hard debugging battle, I managed to make the console error disappear. I have no idea how, and will the error return? We will see.
