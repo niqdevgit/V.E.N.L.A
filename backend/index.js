@@ -9,17 +9,22 @@ app.use(express.static('dist'))
 const Food = require('./models/food')
 const User = require('./models/user')
 const usersRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 
 app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 app.get('/api/foods', (request, response) => {
-  Food.find({}).then(foods => {
+  Food.find({})
+  .populate('user', { username: 1, name: 1 })
+  .then(foods => {
     response.json(foods)
   })
 })
 
 app.post('/api/foods', async (req, res) => {
   const body = req.body
+  console.log(body)
   if (body.food === undefined) {
     return res.status(400).json({ error: 'food missing' })
   }
@@ -29,7 +34,7 @@ app.post('/api/foods', async (req, res) => {
   const food = new Food({
     food: body.food,
     date: body.date,
-    user: user ? user._id : '0000'  //temporary fix for visitor. Orginal line -> user: user._id
+    user: user._id
   })
 
   const savedFood = await food.save()
