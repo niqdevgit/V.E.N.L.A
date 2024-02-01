@@ -1,12 +1,35 @@
 import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
 import { useEffect } from "react"
+import loginService from '../services/login'
+import foodService from '../services/foods'
 
 const MainMenu = ({user,setUser}) => {
 
-    const handleVisitorClick = () => {
-        ///setUser('Vieras')
-    }
+    const handleVisitorClick = async (event) => {
+      event.preventDefault()
+      try {
+        const logginUser = await loginService.login({
+          username: "vieras",
+          password: "password",
+        })
+  
+        window.localStorage.setItem(        
+          'loggedappUser', JSON.stringify(logginUser)      
+        ) 
+        
+        setUser(logginUser.username)
+       
+        foodService.setToken(logginUser.token)
+        
+        
+      } catch (exception) {
+        console.error("Error during login:", exception)
+        
+        }
+      } 
+      
+    
 
     const handleVisitorOutClick = () => {
       window.localStorage.removeItem('loggedappUser')
