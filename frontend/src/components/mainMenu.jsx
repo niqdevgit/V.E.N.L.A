@@ -1,15 +1,25 @@
 import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
+import { useEffect } from "react"
 
 const MainMenu = ({user,setUser}) => {
 
     const handleVisitorClick = () => {
-        setUser('Vieras')
+        ///setUser('Vieras')
     }
 
     const handleVisitorOutClick = () => {
+      window.localStorage.removeItem('loggedappUser')
       setUser(null)
   }
+
+  useEffect(() => {
+  const storedUser = window.localStorage.getItem('loggedappUser')
+  if (storedUser) {
+    const parsedUser = JSON.parse(storedUser)
+    setUser(parsedUser.name)
+  }
+  }, [])
 
   return (
     <div className="main-menu">
@@ -29,6 +39,7 @@ const MainMenu = ({user,setUser}) => {
                 <div>
                     <p>Jotain lorem ipsumia mikä on sovelluksen idea.....</p>
                     <button><a href="/kirjaudu">Kirjaudu</a></button>
+                    <button>Luo käyttäjä</button>
                     <button onClick={handleVisitorClick}>Käytä vieraana💀</button>
                 </div>
             )}

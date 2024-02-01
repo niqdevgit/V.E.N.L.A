@@ -1,5 +1,6 @@
 import axios from 'axios'
-const baseUrl = '/api/foods'
+//const baseUrl = '/api/foods'
+const baseUrl = 'http://localhost:3001/api/foods'
 
 let token = null
 
