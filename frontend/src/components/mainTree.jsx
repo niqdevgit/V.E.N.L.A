@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import axios from 'axios'
 import foodService from '../services/foods'
 
 const MainTree = () => {
@@ -39,24 +38,16 @@ const MainTree = () => {
       
       const saveData = () => {
         const today = new Date().toLocaleDateString()
-        
 
         const foodObject = {
           food: finalSelection,
           date: today,
         }
+
+        foodService.create(foodObject)
       
-        const config = {    
-          headers: { Authorization: token },  
-        }
-
-        axios    
-        .post('http://localhost:3001/api/foods', foodObject, config)    
-        .then(response => {      
-          console.log(response)    
-        })
-
         setStep(0)
+        
       }
 
     if(step === 0) {

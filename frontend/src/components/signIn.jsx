@@ -1,32 +1,37 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
 import loginService from '../services/login'
-import MainTree from "./mainTree"
+import foodService from '../services/foods'
 
-const SignInPage = ({user,setUser}) => {
+const SignInPage = ({setUser}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('') 
     const [errorMessage, setErrorMessage] = useState(null)
+    const navigate = useNavigate()
     
   
-
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
-      const user = await loginService.login({
+      const logginUser = await loginService.login({
         username,
         password,
       })
 
       window.localStorage.setItem(        
-        'loggedappUser', JSON.stringify(user)      
+        'loggedappUser', JSON.stringify(logginUser)      
       ) 
       
-      MainTree.setToken(user.token)
-      setUser(user)
+      setUser(logginUser.username)
+     
+      foodService.setToken(logginUser.token)
       setUsername('')
       setPassword('')
+      navigate('/')
+      
     } catch (exception) {
+      console.error("Error during login:", exception)
       setErrorMessage('Wrong credentials')
       
       setTimeout(() => {
@@ -61,13 +66,12 @@ const SignInPage = ({user,setUser}) => {
   
         <button type="submit">Login</button>
       </form>
-      <button><a href="/">Peruuta</a></button>
+      <button onClick={() => navigate('/')}>Peruuta</button>
     </div>
-  );
-};
+  )
+}
 
 SignInPage.propTypes = {
-  user: PropTypes.string,
   setUser: PropTypes.func,
 }
 
