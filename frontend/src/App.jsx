@@ -6,7 +6,7 @@ import {
   Routes, Route,
 } from 'react-router-dom'
 import Analytics from './components/analytics'
-import MainTree from './components/mainTree'
+import foodService from './services/foods'
 
 function App() {
   const [user, setUser] = useState(null) 
@@ -20,7 +20,7 @@ function App() {
     
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
-      MainTree.setToken(user.token)
+      foodService.setToken(user.token)
     }
   }, [])
 

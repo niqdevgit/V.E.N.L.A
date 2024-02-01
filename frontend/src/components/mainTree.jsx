@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import foodService from '../services/foods'
 
 const MainTree = () => {
     const [step, setStep] = useState(0)
@@ -35,11 +36,7 @@ const MainTree = () => {
         setStep(3)
       }
 
-      let token = null
       
-      const setToken = newToken => {
-        token = `Bearer ${newToken}`
-      }
       const saveData = () => {
         const today = new Date().toLocaleDateString()
         
