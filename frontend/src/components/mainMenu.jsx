@@ -54,6 +54,7 @@ const MainMenu = ({user,setUser}) => {
                   <div style={{ display: 'flex', alignItems: 'center' }} >
                   <p style={{ marginRight: '15px' }}>Hei,{user}!</p>  
                   <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
+                  <button>asetukset , muokkaa tiliä, poista tili, valitse teema</button>
                   </div>
                     <MainTree />
                     <a href="/tilastot">Katso tilastoja</a>
@@ -63,7 +64,7 @@ const MainMenu = ({user,setUser}) => {
                 <div>
                     <p>Jotain lorem ipsumia mikä on sovelluksen idea.....</p>
                     <button><a href="/kirjaudu">Kirjaudu</a></button>
-                    <button>Luo käyttäjä</button>
+                    <button><a href="/luotili">Luo käyttäjä</a></button>
                     <button onClick={handleVisitorClick}>Käytä vieraana💀</button>
                 </div>
             )}

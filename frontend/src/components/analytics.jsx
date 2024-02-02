@@ -45,15 +45,12 @@ const Analytics = ({user,setUser}) => {
         fetchData()
     }, [])
 
-    const toggleSoloGLobal = () => {
-        setGlobalStats(!globalStats) 
-        if(globalStats){
-            setFoods(globalFoods)
-        }
-        if(!globalStats){
-            setFoods(ownFoods)
-        }
+    useEffect(() => {
+        setFoods(globalStats ? globalFoods : ownFoods)
+      }, [globalStats, globalFoods, ownFoods])
 
+    const toggleSoloGLobal = () => {
+        setGlobalStats(!globalStats)
     }
     
     return (

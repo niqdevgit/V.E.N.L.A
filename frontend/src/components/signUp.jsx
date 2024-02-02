@@ -1,30 +1,35 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
-import loginService from '../services/login'
+import userService from '../services/user'
 import foodService from '../services/foods'
+import loginService from '../services/login'
 
-const SignInPage = ({setUser}) => {
+
+const SignUpPage = ({setUser}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('') 
     const [errorMessage, setErrorMessage] = useState(null)
     const navigate = useNavigate()
     
   
-  const handleLogin = async (event) => {
+  const handleSingUp = async (event) => {
     event.preventDefault()
     try {
-      const logginUser = await loginService.login({
+      await userService.singUp({
         username,
         password,
       })
 
+
+      const logginUser = await loginService.login({
+          username,
+          password,
+        })
+        
       window.localStorage.setItem(        
         'loggedappUser', JSON.stringify(logginUser)      
-      ) 
-      
-      setUser(logginUser.username)
-     
+      )
       foodService.setToken(logginUser.token)
       setUsername('')
       setPassword('')
@@ -41,10 +46,9 @@ const SignInPage = ({setUser}) => {
     }
 
   return (
-    <div className="sign-in-page">
-      <h2>Kirjaudu sisään</h2>
-      <p><a href="/luotili">Jos sinulla ei ole tiliä, Luo käyttäjä</a></p>
-      <form onSubmit={handleLogin}>
+    <div className="sign-up-page">
+      <h2>Luo tili</h2>
+      <form onSubmit={handleSingUp}>
         <div>
           Käyttäjänimi
           <input
@@ -72,8 +76,8 @@ const SignInPage = ({setUser}) => {
   )
 }
 
-SignInPage.propTypes = {
+SignUpPage.propTypes = {
   setUser: PropTypes.func,
 }
 
-export default SignInPage
+export default SignUpPage;
