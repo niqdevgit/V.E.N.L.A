@@ -43,9 +43,14 @@ usersRouter.delete('/', async (request, response) => {
     })
   }
 
+  if (username === 'vieras') {
+    return response.status(401).json({
+      error: 'cannot delete visitor'
+    })
+  }
+
   
   try {
-    console.log("we trying")
     await Food.deleteMany({ user: user._id })
 
   } catch (error) {
@@ -56,7 +61,6 @@ usersRouter.delete('/', async (request, response) => {
   User.findOneAndDelete({ username })
     .then(result => {
       if (result) {
-        console.log("User deleted successfully")
         response.status(204).end()
       } else {
         console.log("User not found")

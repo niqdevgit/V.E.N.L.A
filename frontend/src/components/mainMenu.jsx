@@ -7,6 +7,7 @@ import foodService from '../services/foods'
 const MainMenu = ({user,setUser, setTheme}) => {
   const [showSettings, setShowSettings] = useState(false)
   const [defaultTheme, setDefaultTheme] = useState(true)
+  const [visitorOn, setVisitorOn] = useState(false)
 
   const toggleSettings = () => {
     setShowSettings(!showSettings)
@@ -47,6 +48,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
   if (storedUser) {
     const parsedUser = JSON.parse(storedUser)
     setUser(parsedUser.name)
+    
   }
   }, [])
 
@@ -54,7 +56,16 @@ const MainMenu = ({user,setUser, setTheme}) => {
     setDefaultTheme(prevTheme => !prevTheme)
     setTheme(prevTheme => (prevTheme === 'default' ? 'dark' : 'default'))
   }
-  
+
+  useEffect(() => {
+    if(user==='vieras'){
+      setVisitorOn(true)
+    }
+    if(user!='vieras'){
+      setVisitorOn(false)
+    }
+  }, [user])
+
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>
@@ -65,11 +76,11 @@ const MainMenu = ({user,setUser, setTheme}) => {
                   <p style={{ marginRight: '15px' }}>Hei,{user}!</p>  
                   <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
                   <button onClick={toggleSettings}>asetukset </button>
-                  <div 
-                  style={{ display: showSettings ? 'block' : 'none' }}
-                  >
+                  <div style={{ display: showSettings ? 'block' : 'none' }}>
+                    <div style={{ display: visitorOn ? 'none' : 'block' }}>
                     <button>Muokkaa tiliä</button>
                     <button><a href="/poistatili">poista tili</a></button>
+                    </div>
                     <button onClick={toggleTheme}>vaihda teema</button>
                   </div>
                   </div>
