@@ -65,8 +65,9 @@ const SignInPage = ({setUser}) => {
           />
         </div>
   
-        <button type="submit">Login</button>
+        <button type="submit">Kirjaudu</button>
       </form>
+      <button><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></button>
       <button onClick={() => navigate('/')}>Peruuta</button>
     </div>
   )

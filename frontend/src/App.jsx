@@ -10,11 +10,14 @@ import Analytics from './components/analytics'
 import foodService from './services/foods'
 import { defaultStyles } from './style/default'
 import { darkStyles } from './style/dark'
-
+import DeleteUser from './components/deleteUser'
+import ForgottenPassword from './components/forgottenPassword'
 
 function App() {
   const [user, setUser] = useState(null) 
-  const [theme, setTheme] = useState('default')
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'default'
+  })
 
   useEffect(() => {
     document.title = "V.E.N.L.A"
@@ -28,6 +31,10 @@ function App() {
       setUser(user.username)
     }
   }, [user])
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+  }, [theme])
 
   const getThemeStyles = () => {
     switch (theme) {
@@ -44,6 +51,8 @@ function App() {
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/luotili" element={<SignUpPage  />} />
+        <Route path="/poistatili" element={<DeleteUser />} />
+        <Route path="/unohtunutsalasana" element={<ForgottenPassword />} />
         <Route path="/" element={<MainMenu user={user} setUser={setUser} setTheme={setTheme}/>} />
         <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />
         <Route path="*" element={<NotFound />} />

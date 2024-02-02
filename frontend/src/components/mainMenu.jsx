@@ -51,13 +51,8 @@ const MainMenu = ({user,setUser, setTheme}) => {
   }, [])
 
   const toggleTheme = () => {
-    setDefaultTheme(!defaultTheme)
-    if(!defaultTheme){
-      setTheme('default')
-    }
-    if(defaultTheme){
-      setTheme('dark')
-    }
+    setDefaultTheme(prevTheme => !prevTheme)
+    setTheme(prevTheme => (prevTheme === 'default' ? 'dark' : 'default'))
   }
   
   return (
@@ -74,7 +69,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
                   style={{ display: showSettings ? 'block' : 'none' }}
                   >
                     <button>Muokkaa tiliä</button>
-                    <button>poista tili</button>
+                    <button><a href="/poistatili">poista tili</a></button>
                     <button onClick={toggleTheme}>vaihda teema</button>
                   </div>
                   </div>
