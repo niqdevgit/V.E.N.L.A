@@ -3,21 +3,32 @@ import axios from 'axios'
 import AnalyticsTable from './analyticsTable'
 import AnalyticsList from './analyticsList'
 
-const Analytics = () => {
+const Analytics = ({user,setUser}) => {
     const [foods, setFoods] = useState([])
+
+    useEffect(() => {
+        const storedUser = window.localStorage.getItem('loggedappUser')
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser)
+          setUser(parsedUser.name)
+        }
+        }, [])
     
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/foods')
+                
+                const usernameQueryParam = encodeURIComponent(user)
+                console.log(usernameQueryParam)
+                const response = await axios.get("http://localhost:3001/api/foods")
                 setFoods(response.data)
             } catch (error) {
                 console.error('Error fetching food data:', error)
             }
         }
         fetchData()
-    }, [])
+    }, [user])
 
     
     return (

@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/" element={<MainMenu user={user} setUser={setUser}/>} />
-        <Route path='/tilastot' element={<Analytics />} />
+        <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

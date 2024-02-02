@@ -44,6 +44,7 @@ const MainMenu = ({user,setUser}) => {
   }
   }, [])
 
+
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>

@@ -24,6 +24,9 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
 app.get('/api/foods', (request, response) => {
+  const username = request.query
+  console.log("query",request.query)
+  console.log("username",username)
   Food.find({})
   .populate('user', { username: 1, name: 1 })
   .then(foods => {
