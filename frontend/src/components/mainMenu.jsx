@@ -1,10 +1,16 @@
 import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import loginService from '../services/login'
 import foodService from '../services/foods'
 
-const MainMenu = ({user,setUser}) => {
+const MainMenu = ({user,setUser, setTheme}) => {
+  const [showSettings, setShowSettings] = useState(false)
+  const [defaultTheme, setDefaultTheme] = useState(true)
+
+  const toggleSettings = () => {
+    setShowSettings(!showSettings)
+  }
 
     const handleVisitorClick = async (event) => {
       event.preventDefault()
@@ -44,7 +50,16 @@ const MainMenu = ({user,setUser}) => {
   }
   }, [])
 
-
+  const toggleTheme = () => {
+    setDefaultTheme(!defaultTheme)
+    if(!defaultTheme){
+      setTheme('default')
+    }
+    if(defaultTheme){
+      setTheme('dark')
+    }
+  }
+  
   return (
     <div className="main-menu">
       <h1>V.E.N.L.A</h1>
@@ -54,7 +69,14 @@ const MainMenu = ({user,setUser}) => {
                   <div style={{ display: 'flex', alignItems: 'center' }} >
                   <p style={{ marginRight: '15px' }}>Hei,{user}!</p>  
                   <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
-                  <button>asetukset , muokkaa tiliä, poista tili, valitse teema</button>
+                  <button onClick={toggleSettings}>asetukset </button>
+                  <div 
+                  style={{ display: showSettings ? 'block' : 'none' }}
+                  >
+                    <button>Muokkaa tiliä</button>
+                    <button>poista tili</button>
+                    <button onClick={toggleTheme}>vaihda teema</button>
+                  </div>
                   </div>
                     <MainTree />
                     <a href="/tilastot">Katso tilastoja</a>

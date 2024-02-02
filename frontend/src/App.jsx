@@ -8,9 +8,13 @@ import {
 } from 'react-router-dom'
 import Analytics from './components/analytics'
 import foodService from './services/foods'
+import { defaultStyles } from './style/default'
+import { darkStyles } from './style/dark'
+
 
 function App() {
   const [user, setUser] = useState(null) 
+  const [theme, setTheme] = useState('default')
 
   useEffect(() => {
     document.title = "V.E.N.L.A"
@@ -25,13 +29,22 @@ function App() {
     }
   }, [user])
 
+  const getThemeStyles = () => {
+    switch (theme) {
+      case 'dark':
+        return darkStyles
+      case 'default':
+      default:
+        return defaultStyles
+    }
+  }
 
   return (
-    <div>
+    <div style={getThemeStyles()}>
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/luotili" element={<SignUpPage  />} />
-        <Route path="/" element={<MainMenu user={user} setUser={setUser}/>} />
+        <Route path="/" element={<MainMenu user={user} setUser={setUser} setTheme={setTheme}/>} />
         <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
