@@ -24,14 +24,27 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
 app.get('/api/foods', (request, response) => {
-  const username = request.query
-  console.log("query",request.query)
-  console.log("username",username)
+
+  //if token included, return "all data"
+  //const username = request.query
+  //Food.find({})
+  //.populate('user', { username: 1, name: 1 })
+  //.then(foods => {
+  //  response.json(foods)
+  //})
+
+  //else no token, return "global data"
   Food.find({})
-  .populate('user', { username: 1, name: 1 })
-  .then(foods => {
-    response.json(foods)
+    .then(foods => {
+      const formattedFoods = foods.map(food => ({
+        food: food.food,
+        date: food.date,
+        id: food.id
+      }));
+
+      response.json(formattedFoods)
   })
+
 })
 
 app.post('/api/foods', async (req, res) => {
