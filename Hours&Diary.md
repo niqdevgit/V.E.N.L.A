@@ -10,6 +10,7 @@
 | 18 | 5 | More container work | [Link](#25.1.2024) |
 | 27 | 9 | Progress on multiple fronts | [Link](#29.1.2024) |
 | 32 | 5 | User and token handling | [Link](#31.1.2024) |
+| 43 | 11 | User remove, themes | [Link](#2.2.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -43,3 +44,6 @@ Second also: I found out that my CI/CD pipeline has an issue. The render will ta
 I made progress on user handling on the backend. I included the authentication tokens as well. I began to work on frontend functionalities. Due to a lack of hours in a day, I will continue my work later.
 
 I had an interesting battle with Vite. The Vite builder made me an index.html file that had some SVG resource by default. I have cleared my project from default stuff, so I got a console error that it is missing. After a long and hard debugging battle, I managed to make the console error disappear. I have no idea how, and will the error return? We will see.
+
+## 2.2.2024
+Yesterday and mainly today (deja vu?), I worked on user and token stuff. Added theme skeleton. I feel like obsessing over small details is what is keeping me from achieving greatness. I found out that "faking it till making it" only goes so far. I mean that full-stack development is a huge bite to take at once. So using shortcuts and skipping error handling, for example, speeds the process nicely. The shadow side is that now I have a mess of code with a lack of structure and error handling. I think it's fine that I didn't get too stuck on important fundamentals, but on the other hand, it would be nice to work on a project which is more clear.
