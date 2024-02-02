@@ -51,7 +51,7 @@ function App() {
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/luotili" element={<SignUpPage  />} />
-        <Route path="/poistatili" element={<DeleteUser />} />
+        <Route path="/poistatili" element={<DeleteUser user={user} />} />
         <Route path="/unohtunutsalasana" element={<ForgottenPassword />} />
         <Route path="/" element={<MainMenu user={user} setUser={setUser} setTheme={setTheme}/>} />
         <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />

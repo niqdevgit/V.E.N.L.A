@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
+const Food = require('./food')
 
 const userSchema = mongoose.Schema({
     username: {    

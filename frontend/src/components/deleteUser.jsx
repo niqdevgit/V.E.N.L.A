@@ -1,4 +1,5 @@
-const DeleteUser = () =>{
+const DeleteUser = (user) =>{
+    console.log(user)
     return(
         <div>
             <a href="/">Palaa</a>

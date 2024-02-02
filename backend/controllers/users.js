@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
+const Food = require('../models/food')
 const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
@@ -31,17 +32,26 @@ usersRouter.delete('/', async (request, response) => {
   const { username, password } = request.body
 
   const user = await User.findOne({ username })
-  console.log(user)
   const passwordCorrect = user === null
     ? false
     : await bcrypt.compare(password, user.passwordHash)
 
   if (!(user && passwordCorrect)) {
-    console.log("we if bois")
+
     return response.status(401).json({
       error: 'invalid username or password'
     })
   }
+
+  
+  try {
+    console.log("we trying")
+    await Food.deleteMany({ user: user._id })
+
+  } catch (error) {
+    console.log("Error:",error)
+  }
+  
 
   User.findOneAndDelete({ username })
     .then(result => {
