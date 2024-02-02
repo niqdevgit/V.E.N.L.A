@@ -23,16 +23,20 @@ return null
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
-app.get('/api/foods', (request, response) => {
-
-  //if token included, return "all data"
-  //const username = request.query
-  //Food.find({})
-  //.populate('user', { username: 1, name: 1 })
-  //.then(foods => {
-  //  response.json(foods)
-  //})
-
+app.get('/api/foods', async (req, response) => {
+  try {
+    const decodedToken = jwt.verify(getTokenFrom(req),
+    process.env.SECRET)
+    //if token included, return "data of the request user"
+    if (decodedToken.username) {
+      const userFoods = await Food.find({ user: decodedToken.id })
+       return response.json({
+        data: userFoods,
+        status: "solo"
+      })
+    }
+  } 
+ catch{
   //else no token, return "global data"
   Food.find({})
     .then(foods => {
@@ -42,8 +46,12 @@ app.get('/api/foods', (request, response) => {
         id: food.id
       }));
 
-      response.json(formattedFoods)
+      response.json({
+        data: formattedFoods,
+        status: "global"
+      })
   })
+}
 
 })
 

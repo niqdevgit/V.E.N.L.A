@@ -5,6 +5,8 @@ import AnalyticsList from './analyticsList'
 
 const Analytics = ({user,setUser}) => {
     const [foods, setFoods] = useState([])
+    const [globalFoods, setGlobalFoods] = useState([])
+    const [ownFoods, setOwnFoods] = useState([])
     const [globalStats, setGlobalStats] = useState(true)
 
     
@@ -13,7 +15,7 @@ const Analytics = ({user,setUser}) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:3001/api/foods")
-                setFoods(response.data)
+                setGlobalFoods(response.data.data)
             } catch (error) {
                 console.error('Error fetching food data:', error)
             }
@@ -21,12 +23,21 @@ const Analytics = ({user,setUser}) => {
         fetchData()
     }, [])
 
+    
     //personal stats
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/foods")
-                setFoods(response.data)
+                const loggedUserJSON = window.localStorage.getItem('loggedappUser')
+                const user = JSON.parse(loggedUserJSON)
+                const token = `Bearer ${user.token}`
+                const config = {
+                    headers: { Authorization: token },
+                  }
+                const response = await axios.get("http://localhost:3001/api/foods",config)
+
+    
+                setOwnFoods(response.data.data)
             } catch (error) {
                 console.error('Error fetching food data:', error)
             }
@@ -36,6 +47,13 @@ const Analytics = ({user,setUser}) => {
 
     const toggleSoloGLobal = () => {
         setGlobalStats(!globalStats) 
+        if(globalStats){
+            setFoods(globalFoods)
+        }
+        if(!globalStats){
+            setFoods(ownFoods)
+        }
+
     }
     
     return (

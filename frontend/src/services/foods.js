@@ -13,6 +13,14 @@ const getAll = () => {
   return request.then(response => response.data)
 }
 
+const getUserFoods = () => {
+  const config = {
+    headers: { Authorization: token },
+  }
+  const request = axios.get(baseUrl,config)
+  return request.then(response)
+}
+
 const create = newObject => {
   const config = {
     headers: { Authorization: token },
@@ -28,5 +36,5 @@ const update = (id, newObject) => {
 }
 
 export default { 
-  getAll, create, update, setToken
+  getAll, create, update, setToken, getUserFoods
 }
