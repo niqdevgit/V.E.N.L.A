@@ -31,7 +31,6 @@ const SignInPage = ({setUser}) => {
       navigate('/')
       
     } catch (exception) {
-      console.error("Error during login:", exception)
       setErrorMessage('Wrong credentials')
       
       setTimeout(() => {
@@ -43,6 +42,7 @@ const SignInPage = ({setUser}) => {
   return (
     <div className="sign-in-page">
       <h2>Kirjaudu sisään</h2>
+      
       <p><a href="/luotili">Jos sinulla ei ole tiliä, Luo käyttäjä</a></p>
       <form onSubmit={handleLogin}>
         <div>
@@ -64,8 +64,10 @@ const SignInPage = ({setUser}) => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-  
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         <button type="submit">Kirjaudu</button>
+        <p style={{ color: 'red' }} >{errorMessage}</p>
+        </div>
       </form>
       <button><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></button>
       <button onClick={() => navigate('/')}>Peruuta</button>

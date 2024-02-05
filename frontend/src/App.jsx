@@ -48,7 +48,7 @@ function App() {
   }
 
   return (
-    <div style={getThemeStyles()}>
+    <div style={getThemeStyles()} >
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/luotili" element={<SignUpPage  />} />
