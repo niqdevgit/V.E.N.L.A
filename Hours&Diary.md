@@ -11,6 +11,7 @@
 | 27 | 9 | Progress on multiple fronts | [Link](#29.1.2024) |
 | 32 | 5 | User and token handling | [Link](#31.1.2024) |
 | 43 | 11 | User remove, themes | [Link](#2.2.2024) |
+| 47 | 4 | User edit | [Link](#5.2.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -47,3 +48,6 @@ I had an interesting battle with Vite. The Vite builder made me an index.html fi
 
 ## 2.2.2024
 Yesterday and mainly today (deja vu?), I worked on user and token stuff. Added theme skeleton. I feel like obsessing over small details is what is keeping me from achieving greatness. I found out that "faking it till making it" only goes so far. I mean that full-stack development is a huge bite to take at once. So using shortcuts and skipping error handling, for example, speeds the process nicely. The shadow side is that now I have a mess of code with a lack of structure and error handling. I think it's fine that I didn't get too stuck on important fundamentals, but on the other hand, it would be nice to work on a project which is more clear.
+
+## 5.2.2024
+Worked on a PUT request, now I can change users' passwords. Now I have all the "big concepts" working as intended. Now I can start to focus on polishing the features. I also had an interesting call today with my developer friend. I have wondered if I could do the AI implementation, or am I just dreaming. But apparently, it is not that hard or expensive.
