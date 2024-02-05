@@ -9,9 +9,6 @@ const DeleteUser = (user) =>{
     const username = user.user
     const handleUserDeletion = async (event) => {
         event.preventDefault()
-
-        console.log(username)
-        console.log(password)
         try {
           await userService.delUser({
             username,

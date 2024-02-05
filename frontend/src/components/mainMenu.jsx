@@ -81,7 +81,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
                   <button onClick={toggleSettings}>asetukset </button>
                   <div style={{ display: showSettings ? 'block' : 'none' }}>
                     <div style={{ display: visitorOn ? 'none' : 'block' }}>
-                    <button>Muokkaa tiliä</button>
+                    <button><a href="/vaihdasalasana">Vaihda salasana</a></button>
                     <button><a href="/poistatili">poista tili</a></button>
                     </div>
                     <button onClick={toggleTheme}>vaihda teema</button>

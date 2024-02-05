@@ -12,6 +12,7 @@ import { defaultStyles } from './style/default'
 import { darkStyles } from './style/dark'
 import DeleteUser from './components/deleteUser'
 import ForgottenPassword from './components/forgottenPassword'
+import EditUser from './components/editUser'
 
 function App() {
   const [user, setUser] = useState(null) 
@@ -53,6 +54,7 @@ function App() {
         <Route path="/luotili" element={<SignUpPage  />} />
         <Route path="/poistatili" element={<DeleteUser user={user} />} />
         <Route path="/unohtunutsalasana" element={<ForgottenPassword />} />
+        <Route path="/vaihdasalasana" element={<EditUser />} />
         <Route path="/" element={<MainMenu user={user} setUser={setUser} setTheme={setTheme}/>} />
         <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />
         <Route path="*" element={<NotFound />} />
