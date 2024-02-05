@@ -50,7 +50,10 @@ const MainMenu = ({user,setUser, setTheme}) => {
     setUser(parsedUser.name)
     
   }
-  }, [])
+  if (!storedUser){
+    setUser(null)
+  }
+  }, [user])
 
   const toggleTheme = () => {
     setDefaultTheme(prevTheme => !prevTheme)

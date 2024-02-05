@@ -69,7 +69,7 @@ const SignUpPage = ({setUser}) => {
           />
         </div>
   
-        <button type="submit">Login</button>
+        <button type="submit">Luo tili</button>
       </form>
       <button onClick={() => navigate('/')}>Peruuta</button>
     </div>

@@ -8,7 +8,8 @@ const singUp = async credentials => {
 }
 
 const delUser = async credentials => {
-  const response = await axios.delete(baseUrl, credentials)
+  console.log(credentials)
+  const response = await axios.delete(baseUrl, { data: credentials })
   return response.data
 }
 
