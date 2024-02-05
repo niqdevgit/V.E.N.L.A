@@ -11,14 +11,13 @@ usersRouter.get('/', async (request, response) => {
 })
 
 usersRouter.post('/', async (request, response) => {
-  const { username, name, password } = request.body
+  const { username, password } = request.body
 
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(password, saltRounds)
 
   const user = new User({
     username,
-    name,
     passwordHash,
   })
 
@@ -27,19 +26,41 @@ usersRouter.post('/', async (request, response) => {
   response.status(201).json(savedUser)
 })
 
-usersRouter.put('/', (request, response) => {
-  const body = request.body
-
-  const note = {
-    content: body.content,
-    important: body.important,
-  }
-
-  Note.findByIdAndUpdate(request.params.id, note, { new: true })
-    .then(updatedNote => {
-      response.json(updatedNote)
+usersRouter.put('/', async (request, response) => {
+  const { username, password, newpassword } = request.body
+  
+  
+  const olduser = await User.findOne({ username })
+  
+  const passwordCorrect = olduser === null
+  ? false
+  : await bcrypt.compare(password, olduser.passwordHash)
+  
+  if (!(olduser && passwordCorrect)) {
+    
+    return response.status(401).json({
+      error: 'invalid username or password'
     })
-    .catch(error => next(error))
+  }
+  
+  if (username === 'vieras') {
+    return response.status(401).json({
+      error: 'cannot change visitor password'
+    })
+  }
+  const saltRounds = 10
+  const passwordHash = await bcrypt.hash(newpassword, saltRounds)
+  const user = {
+    username,
+    passwordHash,
+  }
+  
+  
+  User.findByIdAndUpdate(olduser, user, { new: true })
+    .then(updatedUser => {
+      response.status(200).json(updatedUser)
+    })
+    
 })
 
 
