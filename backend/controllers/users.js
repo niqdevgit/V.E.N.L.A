@@ -65,7 +65,6 @@ usersRouter.put('/', async (request, response) => {
 
 
 
-
 usersRouter.delete('/', async (request, response) => {
   const { username, password } = request.body
 

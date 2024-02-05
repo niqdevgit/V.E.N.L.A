@@ -12,4 +12,9 @@ const delUser = async credentials => {
   return response.data
 }
 
-export default { singUp, delUser }
+const editUser = async credentials =>{
+  const response = await axios.put(baseUrl, credentials)
+  return response.data
+}
+
+export default { singUp, delUser, editUser }
