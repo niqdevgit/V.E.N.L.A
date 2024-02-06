@@ -93,7 +93,13 @@ const MainMenu = ({user,setUser, setTheme}) => {
                 </div>
             ) : (
                 <div>
-                    <h1 className="main-menu-title">V.E.N.L.A</h1>
+                    <h1 className="main-menu-title">
+                      <span>V.</span>
+                      <span>E.</span>
+                      <span>N.</span>
+                      <span>L.</span>
+                      <span>A.</span>
+                    </h1>
                     <p className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> Valitsemaan Elintarvike Neidollesi Lyhyessä Ajassa</p>
                    
                     <button className="main-menu-button"><a className='main-menu-link' href="/kirjaudu">Kirjaudu</a></button>
