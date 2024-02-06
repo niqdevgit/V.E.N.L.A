@@ -11,7 +11,15 @@ usersRouter.get('/', async (request, response) => {
 })
 
 usersRouter.post('/', async (request, response) => {
+  try {
   const { username, password } = request.body
+
+  const olduser = await User.findOne({ username })
+  if(olduser){
+    return response.status(409).json({
+      error: 'Username used already'
+    })
+  }
 
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(password, saltRounds)
@@ -24,6 +32,9 @@ usersRouter.post('/', async (request, response) => {
   const savedUser = await user.save()
 
   response.status(201).json(savedUser)
+  } catch (error) {
+  response.status(500).json({ error: error.message })
+  }
 })
 
 usersRouter.put('/', async (request, response) => {

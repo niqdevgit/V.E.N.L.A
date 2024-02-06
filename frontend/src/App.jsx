@@ -13,6 +13,7 @@ import { darkStyles } from './style/dark'
 import DeleteUser from './components/deleteUser'
 import ForgottenPassword from './components/forgottenPassword'
 import EditUser from './components/editUser'
+import Navbar from './components/navbar'
 
 function App() {
   const [user, setUser] = useState(null) 
@@ -49,6 +50,7 @@ function App() {
 
   return (
     <div style={getThemeStyles()} >
+      <Navbar />
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/luotili" element={<SignUpPage  />} />

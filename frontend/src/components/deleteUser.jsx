@@ -5,6 +5,7 @@ import userService from '../services/user'
 const DeleteUser = (user) =>{
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const [errorMessage, setErrorMessage] = useState(null)
 
     const username = user.user
     const handleUserDeletion = async (event) => {
@@ -19,8 +20,12 @@ const DeleteUser = (user) =>{
 
           navigate('/')
           
-        } catch (exception) {
-          console.error("Error during login:", exception)
+        } catch (exception){
+          setErrorMessage('Väärä salasana')
+        
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
             } 
         }
 
@@ -43,8 +48,10 @@ const DeleteUser = (user) =>{
                 onChange={({ target }) => setPassword(target.value)}
             />
             </div>
-  
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         <button type="submit">Poista käyttäjä</button>
+        <p style={{ color: 'red' }} >{errorMessage}</p>
+        </div>
       </form>
 
             <p><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></p>

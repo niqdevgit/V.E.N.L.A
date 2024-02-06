@@ -36,8 +36,11 @@ const SignUpPage = ({setUser}) => {
       navigate('/')
       
     } catch (exception) {
-      console.error("Error during login:", exception)
-      setErrorMessage('Wrong credentials')
+      if(exception.response.status === 409){
+        setErrorMessage('Käyttäjänimi on jo käytössä')
+      } else {
+        setErrorMessage('Virhe tapahtui, uritä myöhemmin uudelleen')
+      }
       
       setTimeout(() => {
         setErrorMessage(null)
@@ -68,8 +71,10 @@ const SignUpPage = ({setUser}) => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-  
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         <button type="submit">Luo tili</button>
+        <p style={{ color: 'red' }} >{errorMessage}</p>
+        </div>
       </form>
       <button onClick={() => navigate('/')}>Peruuta</button>
     </div>

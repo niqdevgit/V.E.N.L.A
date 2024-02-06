@@ -71,7 +71,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
 
   return (
     <div className="main-menu">
-      <h1>V.E.N.L.A</h1>
+      
       <i>Valitse Elintarvike Neidollesi Lyhyessä Ajassa</i>
       {user ? (
                 <div>

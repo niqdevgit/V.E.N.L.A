@@ -5,6 +5,7 @@ import userService from '../services/user'
 const EditUser = (user) => {
     const [password, setPassword] = useState('')
     const [newpassword, setNewPassword] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
     const navigate = useNavigate()
 
     const username = user.user
@@ -16,15 +17,19 @@ const EditUser = (user) => {
             password,
             newpassword
           })
-  
-        
 
           navigate('/')
           
         } catch (exception) {
-          console.error("Error during login:", exception)
+          setErrorMessage('Väärä käyttäjänimi tai salasana')
+        
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
             } 
         }
+
+
     return (
         <div>
             <a href="/">Palaa</a>
@@ -49,7 +54,10 @@ const EditUser = (user) => {
             />
             </div>
   
+        <div style={{ display: 'flex', alignItems: 'center' }}>
         <button type="submit">Vaihda salasana</button>
+        <p style={{ color: 'red' }} >{errorMessage}</p>
+        </div>
       </form>
 
             <p><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></p>
