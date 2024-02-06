@@ -1,6 +1,6 @@
 import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import loginService from '../services/login'
 import foodService from '../services/foods'
@@ -12,9 +12,22 @@ const MainMenu = ({user,setUser, setTheme}) => {
   const [defaultTheme, setDefaultTheme] = useState(true)
   const [visitorOn, setVisitorOn] = useState(false)
 
-  const toggleSettings = () => {
-    setShowSettings(!showSettings)
+  const settingsPanelRef = useRef(null)
+  const settingsButtonRef = useRef(null)
+
+  const closeSettingsPanel = (event) => {
+    console.log("Clicked Element:", event.target)
+    if (!settingsPanelRef.current.contains(event.target) && !settingsButtonRef.current.contains(event.target)) {
+      setShowSettings(false)
+    }
   }
+  
+  useEffect(() => {
+    window.addEventListener("click", closeSettingsPanel)
+    return () => {
+      window.removeEventListener("click", closeSettingsPanel)
+    }
+  }, [])
 
     const handleVisitorClick = async (event) => {
       event.preventDefault()
@@ -72,6 +85,11 @@ const MainMenu = ({user,setUser, setTheme}) => {
     }
   }, [user])
 
+  const toggleSettings = () => {
+    setShowSettings((prevShowSettings) => !prevShowSettings)
+}
+
+
   return (
     <div className="main-menu">
       
@@ -81,10 +99,10 @@ const MainMenu = ({user,setUser, setTheme}) => {
                   <div style={{ display: 'flex', alignItems: 'center' }} >
                   <p style={{ marginRight: '15px' }}>Hei, {user}</p>  
                   
-                  <button  onClick={toggleSettings}><FaAlignRight /></button>
-                  <div style={{ display: showSettings ? 'block' : 'none' }}>
-                    <div style={{ display: visitorOn ? 'none' : 'block' }}>
+                  <button ref={settingsButtonRef} onClick={toggleSettings}><FaAlignRight /></button>
+                  <div ref={settingsPanelRef} className={`settings-panel ${showSettings ? 'show' : ''}`}>
                     <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
+                    <div style={{ display: visitorOn ? 'none' : 'block' }}>
                     <button onClick={() => navigate('/vaihdasalasana')}>Vaihda salasana</button>
                     <button onClick={() => navigate('/poistatili')}>Poista tili</button>
                     </div>
@@ -92,7 +110,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
                   </div>
                   </div>
                     <MainTree />
-                    <a href="/tilastot">Katso tilastoja</a>
+                    <button onClick={() => navigate('/tilastot')}>Katso tilastoja</button>
                     
                 </div>
             ) : (
