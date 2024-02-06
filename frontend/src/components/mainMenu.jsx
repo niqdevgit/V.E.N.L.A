@@ -72,7 +72,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
   return (
     <div className="main-menu">
       
-      <i>Valitse Elintarvike Neidollesi Lyhyessä Ajassa</i>
+  
       {user ? (
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center' }} >
@@ -93,10 +93,12 @@ const MainMenu = ({user,setUser, setTheme}) => {
                 </div>
             ) : (
                 <div>
-                    <p>Jotain lorem ipsumia mikä on sovelluksen idea.....</p>
-                    <button><a href="/kirjaudu">Kirjaudu</a></button>
-                    <button><a href="/luotili">Luo käyttäjä</a></button>
-                    <button onClick={handleVisitorClick}>Käytä vieraana💀</button>
+                    <h1 className="main-menu-title">V.E.N.L.A</h1>
+                    <p className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> Valitsemaan Elintarvike Neidollesi Lyhyessä Ajassa</p>
+                   
+                    <button className="main-menu-button"><a className='main-menu-link' href="/kirjaudu">Kirjaudu</a></button>
+                    <button className="main-menu-button"><a className='main-menu-link' href="/luotili">Luo käyttäjä</a></button>
+                    <button className="main-menu-button" onClick={handleVisitorClick}>Käytä vieraana💀</button>
                 </div>
             )}
     </div>

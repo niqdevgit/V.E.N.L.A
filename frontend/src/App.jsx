@@ -4,7 +4,7 @@ import SignInPage from "./components/signIn"
 import SignUpPage from './components/signUp'
 import NotFound from './components/notFound'
 import {
-  Routes, Route,
+  Routes, Route, useLocation
 } from 'react-router-dom'
 import Analytics from './components/analytics'
 import foodService from './services/foods'
@@ -16,6 +16,7 @@ import EditUser from './components/editUser'
 import Navbar from './components/navbar'
 
 function App() {
+  const location = useLocation()
   const [user, setUser] = useState(null) 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'default'
@@ -48,9 +49,13 @@ function App() {
     }
   }
 
+  const shouldRenderNavbar = () => {
+    return location.pathname !== "/"
+  }
+
   return (
     <div style={getThemeStyles()} >
-      <Navbar />
+       {shouldRenderNavbar() && <Navbar />}
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
         <Route path="/luotili" element={<SignUpPage  />} />
