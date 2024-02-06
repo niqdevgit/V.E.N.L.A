@@ -31,7 +31,7 @@ const SignInPage = ({setUser}) => {
       navigate('/')
       
     } catch (exception) {
-      setErrorMessage('Wrong credentials')
+      setErrorMessage('Väärä käyttäjänimi tai salasana')
       
       setTimeout(() => {
         setErrorMessage(null)
