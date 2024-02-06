@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import loginService from '../services/login'
 import foodService from '../services/foods'
+import { FaAlignRight } from "react-icons/fa"
 
 const MainMenu = ({user,setUser, setTheme}) => {
   const navigate = useNavigate()
@@ -78,15 +79,16 @@ const MainMenu = ({user,setUser, setTheme}) => {
       {user ? (
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center' }} >
-                  <p style={{ marginRight: '15px' }}>Hei,{user}!</p>  
-                  <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
-                  <button onClick={toggleSettings}>asetukset </button>
+                  <p style={{ marginRight: '15px' }}>Hei, {user}</p>  
+                  
+                  <button  onClick={toggleSettings}><FaAlignRight /></button>
                   <div style={{ display: showSettings ? 'block' : 'none' }}>
                     <div style={{ display: visitorOn ? 'none' : 'block' }}>
-                    <button><a href="/vaihdasalasana">Vaihda salasana</a></button>
-                    <button><a href="/poistatili">poista tili</a></button>
+                    <button onClick={handleVisitorOutClick}>Kirjaudu ulos</button>
+                    <button onClick={() => navigate('/vaihdasalasana')}>Vaihda salasana</button>
+                    <button onClick={() => navigate('/poistatili')}>Poista tili</button>
                     </div>
-                    <button onClick={toggleTheme}>vaihda teema</button>
+                    <button onClick={toggleTheme}>Vaihda teema</button>
                   </div>
                   </div>
                     <MainTree />
