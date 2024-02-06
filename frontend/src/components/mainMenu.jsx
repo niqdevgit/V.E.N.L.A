@@ -16,7 +16,6 @@ const MainMenu = ({user,setUser, setTheme}) => {
   const settingsButtonRef = useRef(null)
 
   const closeSettingsPanel = (event) => {
-    console.log("Clicked Element:", event.target)
     if (!settingsPanelRef.current.contains(event.target) && !settingsButtonRef.current.contains(event.target)) {
       setShowSettings(false)
     }
@@ -96,8 +95,8 @@ const MainMenu = ({user,setUser, setTheme}) => {
   
       {user ? (
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center' }} >
-                  <p style={{ marginRight: '15px' }}>Hei, {user}</p>  
+                  <div className="user-setting-box" >
+                  <p>Hei, {user}</p>  
                   
                   <button ref={settingsButtonRef} onClick={toggleSettings}><FaAlignRight /></button>
                   <div ref={settingsPanelRef} className={`settings-panel ${showSettings ? 'show' : ''}`}>
@@ -107,16 +106,17 @@ const MainMenu = ({user,setUser, setTheme}) => {
                     <button onClick={() => navigate('/poistatili')}>Poista tili</button>
                     </div>
                     <button onClick={toggleTheme}>Vaihda teema</button>
+                    <button onClick={() => navigate('/tilastot')}>Katso tilastoja</button>
+                    <button onClick={toggleSettings}>Sulje palkki</button>
                   </div>
                   </div>
                     <MainTree />
-                    <button onClick={() => navigate('/tilastot')}>Katso tilastoja</button>
                     
                 </div>
             ) : (
                 <div>
-                    <h1 className="main-menu-title">V.E.N.L.A</h1>
-                    <p className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> Valitsemaan Elintarvike Neidollesi Lyhyessä Ajassa</p>
+                    <h1 ref={settingsPanelRef} className="main-menu-title">V.E.N.L.A</h1>
+                    <p ref={settingsButtonRef} className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> Valitsemaan Elintarvike Neidollesi Lyhyessä Ajassa</p>
                    
                     <button className="main-menu-button" onClick={() => navigate('/kirjaudu')}>Kirjaudu</button>
                     <button className="main-menu-button" onClick={() => navigate('/luotili')}>Luo käyttäjä</button>

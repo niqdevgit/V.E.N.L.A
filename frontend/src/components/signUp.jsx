@@ -50,8 +50,8 @@ const SignUpPage = ({setUser}) => {
 
   return (
     <div className="sign-up-page">
+      <form className="login-form" onSubmit={handleSingUp}>
       <h2>Luo tili</h2>
-      <form onSubmit={handleSingUp}>
         <div>
           Käyttäjänimi
           <input
