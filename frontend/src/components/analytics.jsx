@@ -55,11 +55,8 @@ const Analytics = ({user,setUser}) => {
     
     return (
     <div>
-        <a href="/">Palaa</a>
-        <h2>Katso tilastoja</h2>
-        <button onClick={toggleSoloGLobal}>
-        {globalStats ?  'Omat tilastot' : 'Globaalit tilastot'}
-    </button>
+        <button onClick={toggleSoloGLobal}>Vaihda</button>
+    <p>{globalStats ?  'Näät globaalit tilastot' : 'Näät omat tilastot'}</p>
         <AnalyticsTable foods={foods}/>
         <br></br>
         <AnalyticsList foods={foods}/> 

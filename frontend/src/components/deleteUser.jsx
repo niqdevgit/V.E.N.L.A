@@ -32,11 +32,10 @@ const DeleteUser = (user) =>{
 
     return(
         <div>
-            <a href="/">Palaa</a>
+            
+            <form className="login-form" onSubmit={handleUserDeletion}>
             <p>Kirjoita kenttään salasanasi jos haluat poistaa tilisi ja kaikki sen tiedot</p>
             <p>Poistoa ei voi perua!</p>
-            
-            <form onSubmit={handleUserDeletion}>
        
   
             <div>
@@ -54,7 +53,7 @@ const DeleteUser = (user) =>{
         </div>
       </form>
 
-            <p><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></p>
+      <button onClick={() => navigate('/unohtunutsalasana')}>Oletko unohtanut salasanasi?</button>
             
         </div>
     )

@@ -32,9 +32,7 @@ const EditUser = (user) => {
 
     return (
         <div>
-            <a href="/">Palaa</a>
-            
-            <form onSubmit={handleUserEdit}>
+            <form className="login-form" onSubmit={handleUserEdit}>
             <div>
             <p>Aseta uusi salasana</p>
             <input
@@ -60,7 +58,7 @@ const EditUser = (user) => {
         </div>
       </form>
 
-            <p><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></p>
+      <button onClick={() => navigate('/unohtunutsalasana')}>Oletko unohtanut salasanasi?</button>
         </div>
     )
 }

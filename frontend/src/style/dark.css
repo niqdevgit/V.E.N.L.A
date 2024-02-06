@@ -1,11 +1,11 @@
 /* Globals */
 body {
-    background-color: #FFFF00;
+    background-color: lightgray;
     font-family: Roboto, sans-serif;
 }
 
 button {
-    background-color: purple;
+    background-color: gray;
     border: 2px solid black;
     border-radius: 0;
     color: white;

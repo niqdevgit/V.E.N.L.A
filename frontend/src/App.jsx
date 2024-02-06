@@ -8,14 +8,17 @@ import {
 } from 'react-router-dom'
 import Analytics from './components/analytics'
 import foodService from './services/foods'
-import { defaultStyles } from './style/default'
-import { darkStyles } from './style/dark'
+
 import DeleteUser from './components/deleteUser'
 import ForgottenPassword from './components/forgottenPassword'
 import EditUser from './components/editUser'
 import Navbar from './components/navbar'
+import './style/app.css'
+import './style/dark.css'
 
 function App() {
+  const defaultStyles = null
+  const darkStyles = null
   const location = useLocation()
   const [user, setUser] = useState(null) 
   const [theme, setTheme] = useState(() => {
