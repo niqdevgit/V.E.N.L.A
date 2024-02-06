@@ -50,9 +50,7 @@ function App() {
   }
 
   const shouldRenderNavbar = () => {
-    console.log(location.pathname !== '/')
-    const shouldRender = user !== null 
-  console.log("Should render navbar:", shouldRender)
+    const shouldRender = user !== null || location.pathname !== '/'
   return shouldRender
 
   }

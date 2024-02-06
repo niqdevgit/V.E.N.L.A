@@ -4,22 +4,7 @@ body {
     font-family: Roboto, sans-serif;
 }
 
-
-
-
-/* Navbar */
-.navbar-main-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.navbar-main-link:hover {
-    color: #353535;
-}
-
-
-/* Main Menu */
-.main-menu-button {
+button {
     background-color: purple;
     border: 2px solid black;
     border-radius: 0;
@@ -36,6 +21,37 @@ body {
     height: 48px;
 }
 
+button:hover {
+    transform: translateY(-4px);
+    transform: translateX(-4px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.submit-button-error-box{
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.error-message {
+    color: white;
+    background-color: brown;
+    padding: 3px;
+    border: 2px solid black;
+}
+
+/* Navbar */
+.navbar-main-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-main-link:hover {
+    color: #353535;
+}
+
+
+/* Main Menu */
 .main-menu-link {
     text-decoration: none;
     color: white;
@@ -61,29 +77,15 @@ body {
 
 
 .main-menu-title {
-    font-size: 16vW;
-    margin: 40px;
-    display: flex;
-    flex-direction: row;
+    font-size: 20vW;
+    margin: 20px;
   }
-  
-  .main-menu-title span {
-    display: inline-block;
-  }
-  
-  .main-menu-title span:nth-child(2) {
-    margin-top: 40px;
-  }
-  
-  .main-menu-title span:nth-child(3) {
-    margin-top: 80px;
-  }
-  
-  .main-menu-title span:nth-child(4) {
-    margin-top: 120px;
-  }
-  
-  .main-menu-title span:nth-child(5) {
-    margin-top: 160px;
-  }
-  
+
+
+/*Login page*/
+.login-form {
+    background-color: lime;
+    padding: 10px ;
+    border: 2px solid black;
+    border-radius: 0;
+}

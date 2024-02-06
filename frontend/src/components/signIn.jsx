@@ -41,10 +41,10 @@ const SignInPage = ({setUser}) => {
 
   return (
     <div className="sign-in-page">
-      <h2>Kirjaudu sisään</h2>
       
-      <p><a href="/luotili">Jos sinulla ei ole tiliä, Luo käyttäjä</a></p>
-      <form onSubmit={handleLogin}>
+      
+      <form className='login-form' onSubmit={handleLogin}>
+      <h2>Kirjaudu sisään</h2>
         <div>
           Käyttäjänimi
           <input
@@ -64,12 +64,13 @@ const SignInPage = ({setUser}) => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="submit-button-error-box">
         <button type="submit">Kirjaudu</button>
-        <p style={{ color: 'red' }} >{errorMessage}</p>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
       </form>
-      <button><a href="/unohtunutsalasana">Oletko unohtanut salasanasi?</a></button>
+      <button onClick={() => navigate('/luotili')}>Jos sinulla ei ole tiliä, Luo käyttäjä</button>
+      <button onClick={() => navigate('/unohtunutsalasana')}>Oletko unohtanut salasanasi?</button>
       <button onClick={() => navigate('/')}>Peruuta</button>
     </div>
   )

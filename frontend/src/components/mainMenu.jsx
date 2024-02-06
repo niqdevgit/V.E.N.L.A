@@ -1,10 +1,12 @@
 import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import loginService from '../services/login'
 import foodService from '../services/foods'
 
 const MainMenu = ({user,setUser, setTheme}) => {
+  const navigate = useNavigate()
   const [showSettings, setShowSettings] = useState(false)
   const [defaultTheme, setDefaultTheme] = useState(true)
   const [visitorOn, setVisitorOn] = useState(false)
@@ -93,17 +95,11 @@ const MainMenu = ({user,setUser, setTheme}) => {
                 </div>
             ) : (
                 <div>
-                    <h1 className="main-menu-title">
-                      <span>V.</span>
-                      <span>E.</span>
-                      <span>N.</span>
-                      <span>L.</span>
-                      <span>A.</span>
-                    </h1>
+                    <h1 className="main-menu-title">V.E.N.L.A</h1>
                     <p className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> Valitsemaan Elintarvike Neidollesi Lyhyessä Ajassa</p>
                    
-                    <button className="main-menu-button"><a className='main-menu-link' href="/kirjaudu">Kirjaudu</a></button>
-                    <button className="main-menu-button"><a className='main-menu-link' href="/luotili">Luo käyttäjä</a></button>
+                    <button className="main-menu-button" onClick={() => navigate('/kirjaudu')}>Kirjaudu</button>
+                    <button className="main-menu-button" onClick={() => navigate('/luotili')}>Luo käyttäjä</button>
                     <button className="main-menu-button" onClick={handleVisitorClick}>Käytä vieraana💀</button>
                 </div>
             )}
