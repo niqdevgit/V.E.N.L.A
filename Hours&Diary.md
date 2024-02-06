@@ -12,6 +12,7 @@
 | 32 | 5 | User and token handling | [Link](#31.1.2024) |
 | 43 | 11 | User remove, themes | [Link](#2.2.2024) |
 | 47 | 4 | User edit | [Link](#5.2.2024) |
+| 54 | 7 | Error handling and css | [Link](#6.2.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -51,3 +52,6 @@ Yesterday and mainly today (deja vu?), I worked on user and token stuff. Added t
 
 ## 5.2.2024
 Worked on a PUT request, now I can change users' passwords. Now I have all the "big concepts" working as intended. Now I can start to focus on polishing the features. I also had an interesting call today with my developer friend. I have wondered if I could do the AI implementation, or am I just dreaming. But apparently, it is not that hard or expensive.
+
+## 6.2.2024
+I added error handling to the backend and appropriate messaging to the frontend. I worked on CSS a lot. I'm not that competent in CSS, but I really enjoy working with it. I managed to create some kind of neo-brutalism style.
