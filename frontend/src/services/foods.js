@@ -10,15 +10,14 @@ const setToken = newToken => {
 
 const getAll = () => {
   const request = axios.get(baseUrl)
-  return request.then(response => response.data)
+  return request.data
 }
 
 const getUserFoods = () => {
   const config = {
     headers: { Authorization: token },
   }
-  const request = axios.get(baseUrl,config)
-  return request.then(response)
+  return axios.get(baseUrl,config)
 }
 
 const create = newObject => {
@@ -27,12 +26,12 @@ const create = newObject => {
   }
 
   const request = axios.post(baseUrl, newObject, config)
-  return request.then(response => response.data)
+  return request.data
 }
 
 const update = (id, newObject) => {
   const request = axios.put(`${baseUrl}/${id}`, newObject)
-  return request.then(response => response.data)
+  return request.data
 }
 
 export default { 

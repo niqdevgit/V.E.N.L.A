@@ -42,25 +42,28 @@ function App() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
-  useEffect(() => {
-    getThemeStyles()
-
-  }, [theme])
+ 
 
 
   const getThemeStyles = async () => {
+    let css
     switch (theme) {
       case 'dark':
-        const cssDark = await styleService.getDarkStyle()
-        setGlobalStyles(cssDark)
+        css = await styleService.getDarkStyle()
+        setGlobalStyles(css)
         break
       case 'default':
       default:
-        const css = await styleService.getDefaultStyle()
+        css = await styleService.getDefaultStyle()
         setGlobalStyles(css)
         break
     }
   }
+
+  useEffect(() => {
+    getThemeStyles()
+
+  }, [theme,getThemeStyles])
 
   const GlobalStyle = createGlobalStyle`
   ${globalStyles}

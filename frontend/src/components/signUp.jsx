@@ -6,7 +6,7 @@ import foodService from '../services/foods'
 import loginService from '../services/login'
 
 
-const SignUpPage = ({setUser}) => {
+const SignUpPage = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('') 
     const [errorMessage, setErrorMessage] = useState(null)

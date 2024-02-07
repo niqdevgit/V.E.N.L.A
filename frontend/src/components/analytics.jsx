@@ -3,7 +3,7 @@ import axios from 'axios'
 import AnalyticsTable from './analyticsTable'
 import AnalyticsList from './analyticsList'
 
-const Analytics = ({user,setUser}) => {
+const Analytics = () => {
     const [foods, setFoods] = useState([])
     const [globalFoods, setGlobalFoods] = useState([])
     const [ownFoods, setOwnFoods] = useState([])
