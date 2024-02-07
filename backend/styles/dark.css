@@ -40,6 +40,11 @@ button:hover {
     border: 2px solid black;
 }
 
+.flex-box {
+    display: flex;
+    align-items: center;
+}
+
 /* Navbar */
 .navbar-main-link {
     text-decoration: none;

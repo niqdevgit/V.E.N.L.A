@@ -43,16 +43,7 @@ function App() {
   }, [theme])
 
   useEffect(() => {
-    const head = document.head
-    const link = document.createElement("link")
-
-    link.type = "text/css"
-    link.rel = "stylesheet"
-    link.href = getThemeStyles()
-
-    head.appendChild(link)
-
-    return () => { head.removeChild(link) }
+    getThemeStyles()
 
   }, [theme])
 
