@@ -9,6 +9,6 @@ describe('Venla app', function() {
 
   it('Visitor can login', function() {
     cy.contains('Käytä vieraana').click()
-    cy.contains('Hei,vieras!')
+    cy.contains('Hei, vieras')
   })
 })
