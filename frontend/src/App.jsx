@@ -8,18 +8,18 @@ import {
 } from 'react-router-dom'
 import Analytics from './components/analytics'
 import foodService from './services/foods'
-
 import DeleteUser from './components/deleteUser'
 import ForgottenPassword from './components/forgottenPassword'
 import EditUser from './components/editUser'
 import Navbar from './components/navbar'
-import './style/app.css'
 //import './style/dark.css'
+//import './style/default.css'
+import styleService from './services/style'
+import { createGlobalStyle } from 'styled-components'
 
 function App() {
-  const defaultStyles = null
-  const darkStyles = null
   const location = useLocation()
+  const [globalStyles, setGlobalStyles] = useState('')
   const [user, setUser] = useState(null) 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'default'
@@ -42,15 +42,38 @@ function App() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
-  const getThemeStyles = () => {
+  useEffect(() => {
+    const head = document.head
+    const link = document.createElement("link")
+
+    link.type = "text/css"
+    link.rel = "stylesheet"
+    link.href = getThemeStyles()
+
+    head.appendChild(link)
+
+    return () => { head.removeChild(link) }
+
+  }, [theme])
+
+
+  const getThemeStyles = async () => {
     switch (theme) {
       case 'dark':
-        return darkStyles
+        const cssDark = await styleService.getDarkStyle()
+        setGlobalStyles(cssDark)
+        break
       case 'default':
       default:
-        return defaultStyles
+        const css = await styleService.getDefaultStyle()
+        setGlobalStyles(css)
+        break
     }
   }
+
+  const GlobalStyle = createGlobalStyle`
+  ${globalStyles}
+`
 
   const shouldRenderNavbar = () => {
     const shouldRender = user !== null || location.pathname !== '/'
@@ -59,7 +82,8 @@ function App() {
   }
 
   return (
-    <div style={getThemeStyles()} >
+    <div>
+      <GlobalStyle />
        {shouldRenderNavbar() && <Navbar />}
       <Routes>
         <Route path="/kirjaudu" element={<SignInPage user={user} setUser={setUser} />} />
@@ -69,7 +93,7 @@ function App() {
         <Route path="/vaihdasalasana" element={<EditUser user={user}/>} />
         <Route path="/" element={<MainMenu user={user} setUser={setUser} setTheme={setTheme}/>} />
         <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </div>
   

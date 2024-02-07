@@ -83,11 +83,17 @@ app.post('/api/foods', async (req, res) => {
   res.json(savedFood)
 })
 
+app.get('/styles/default.css', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'styles', 'default.css'))
+})
 
+app.get('/styles/dark.css', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'styles', 'dark.css'))
+})
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
-});
+})
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
