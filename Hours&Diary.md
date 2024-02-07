@@ -13,6 +13,7 @@
 | 43 | 11 | User remove, themes | [Link](#2.2.2024) |
 | 47 | 4 | User edit | [Link](#5.2.2024) |
 | 54 | 7 | Error handling and css | [Link](#6.2.2024) |
+| 61 | 7 | Theme switching and lint | [Link](#7.2.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -55,3 +56,10 @@ Worked on a PUT request, now I can change users' passwords. Now I have all the "
 
 ## 6.2.2024
 I added error handling to the backend and appropriate messaging to the frontend. I worked on CSS a lot. I'm not that competent in CSS, but I really enjoy working with it. I managed to create some kind of neo-brutalism style.
+
+## 7.2.2024
+I had a legendary battle with the theme switcher. I wanted to use real CSS, not some ReactJS trick. That caused me to come up with a solution that must be illegal or at least morally highly doubtful. Nowadays I store my CSS files in the backend, not frontend. Then I fetch them and set them dynamically. Performance suffers a little, but every war takes its casualties.
+
+IDK, this turned into a therapy session, but I need to get something off my chest. I feel like an impostor. I cannot make professional and robust solutions. I feel like all I ever develop are tape and glue solutions that get the job done, but are not the "correct" way to do. I soon start my first official developer job at a real company. Maybe seeing how "the real professionals" do it I get some confidence in me. And also I might learn "the one and only correct way" to do things.
+
+I also tried to deploy the app, no time today to debug it. 🙁
