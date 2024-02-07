@@ -45,6 +45,12 @@ button:hover {
     align-items: center;
 }
 
+.centered-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Navbar */
 .navbar-main-link {
     text-decoration: none;
@@ -120,7 +126,7 @@ justify-content: space-between;
 
 /*Login page*/
 .login-form {
-    background-color: lime;
+    background-color: pink;
     padding: 10px ;
     border: 2px solid black;
     border-radius: 0;

@@ -32,7 +32,8 @@ const MainTree = () => {
       }
 
       const friesSelection = () => {
-        setStep(3)
+        setFinalSelection('Ranskalaiset')
+        setStep(4)
       }
 
       
@@ -52,7 +53,7 @@ const MainTree = () => {
 
     if(step === 0) {
     return (
-    <div>
+    <div className='centered-div'>
          <button onClick={sizeSelection}>Aloita ruuan valinta</button>
     </div>
     )
@@ -60,29 +61,44 @@ const MainTree = () => {
 
   if(step === 1) {
     return (
-    <div>
-        <button onClick={smallSelection}>Pieni</button>
-        <button onClick={largeSelection}>Iso</button>
-        <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
-    </div>
+      <div>
+        <div className='centered-div'>
+           <button onClick={sizeSelection}>Aloita ruuan valinta</button>
+           <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
+        </div>
+        <div className='centered-div'>
+          <button onClick={smallSelection}>Pieni</button>
+          <button onClick={largeSelection}>Iso</button>
+        </div>
+      </div>
     )
   }
 
   if(step === 2) {
     return (
-    <div>
-        <button onClick={pizzaSelection}>Pitsa</button>
-        <button onClick={kebabSelection}>Kebab</button>
-        <button onClick={friesSelection}>Ranskalaiset</button>
-        <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
-    </div>
+      <div>
+        <div className='centered-div'>
+          <button onClick={sizeSelection}>Aloita ruuan valinta</button>
+          <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
+        </div>
+        <div className='centered-div'>
+          <button onClick={smallSelection}>Pieni</button>
+          <button onClick={largeSelection}>Iso</button>
+        </div>
+        <div className='centered-div'>
+          <button onClick={pizzaSelection}>Pitsa</button>
+          <button onClick={kebabSelection}>Kebab</button>
+          <button onClick={friesSelection}>Ranskalaiset</button>
+          
+        </div>
+      </div>
     )
   }
 
   if(step === 2.1) {
     return (
-    <div>
-        <p>Älä syö pineen nälkään</p>
+    <div className='centered-div'>
+        <p>Älä syö pieneen nälkään</p>
         <button style={{ marginLeft: '15px' }} onClick={reset}>Alkuun</button>
     </div>
     )
