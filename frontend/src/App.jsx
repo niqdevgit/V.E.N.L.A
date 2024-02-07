@@ -12,8 +12,6 @@ import DeleteUser from './components/deleteUser'
 import ForgottenPassword from './components/forgottenPassword'
 import EditUser from './components/editUser'
 import Navbar from './components/navbar'
-//import './style/dark.css'
-//import './style/default.css'
 import styleService from './services/style'
 import { createGlobalStyle } from 'styled-components'
 
@@ -44,7 +42,7 @@ function App() {
 
  
 
-
+  useEffect(() => {
   const getThemeStyles = async () => {
     let css
     switch (theme) {
@@ -60,10 +58,10 @@ function App() {
     }
   }
 
-  useEffect(() => {
+  
     getThemeStyles()
 
-  }, [theme,getThemeStyles])
+  }, [theme])
 
   const GlobalStyle = createGlobalStyle`
   ${globalStyles}

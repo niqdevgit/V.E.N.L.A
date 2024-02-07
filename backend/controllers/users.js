@@ -102,7 +102,9 @@ usersRouter.delete('/', async (request, response) => {
     await Food.deleteMany({ user: user._id })
 
   } catch (error) {
-    console.log("Error:",error)
+    return response.status(500).json({
+      error: error
+    })
   }
   
 

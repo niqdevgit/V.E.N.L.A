@@ -1,6 +1,6 @@
 import MainTree from "./mainTree"
 import PropTypes from 'prop-types'
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import loginService from '../services/login'
 import foodService from '../services/foods'
@@ -9,7 +9,6 @@ import { FaAlignRight } from "react-icons/fa"
 const MainMenu = ({user,setUser, setTheme}) => {
   const navigate = useNavigate()
   const [showSettings, setShowSettings] = useState(false)
-  const [defaultTheme, setDefaultTheme] = useState(true)
   const [visitorOn, setVisitorOn] = useState(false)
 
   const settingsPanelRef = useRef(null)
@@ -28,28 +27,27 @@ const MainMenu = ({user,setUser, setTheme}) => {
     }
   }, [])
 
-    const handleVisitorClick = async (event) => {
-      event.preventDefault()
-      try {
-        const logginUser = await loginService.login({
-          username: "vieras",
-          password: "password",
-        })
-  
-        window.localStorage.setItem(        
-          'loggedappUser', JSON.stringify(logginUser)      
-        ) 
-        
-        setUser(logginUser.username)
-       
-        foodService.setToken(logginUser.token)
-        
-        
-      } catch (exception) {
-        console.error("Error during login:", exception)
-        
-        }
-      } 
+  const handleVisitorClick = useCallback(async (event) => {
+    event.preventDefault()
+    try {
+      const logginUser = await loginService.login({
+        username: "vieras",
+        password: "password",
+      })
+
+      window.localStorage.setItem(
+        'loggedappUser', JSON.stringify(logginUser)
+      )
+
+      setUser(logginUser.username)
+
+      foodService.setToken(logginUser.token)
+
+    } catch (exception) {
+      console.error("Error during login:", exception)
+
+    }
+  }, [setUser])
       
     
 
@@ -68,10 +66,9 @@ const MainMenu = ({user,setUser, setTheme}) => {
   if (!storedUser){
     setUser(null)
   }
-  }, [user])
+  }, [user, setUser])
 
   const toggleTheme = () => {
-    setDefaultTheme(prevTheme => !prevTheme)
     setTheme(prevTheme => (prevTheme === 'default' ? 'dark' : 'default'))
   }
 
@@ -121,6 +118,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
                     <button className="main-menu-button" onClick={() => navigate('/kirjaudu')}>Kirjaudu</button>
                     <button className="main-menu-button" onClick={() => navigate('/luotili')}>Luo käyttäjä</button>
                     <button className="main-menu-button" onClick={handleVisitorClick}>Käytä vieraana💀</button>
+                    <br></br>
                 </div>
             )}
     </div>
@@ -130,6 +128,7 @@ const MainMenu = ({user,setUser, setTheme}) => {
 MainMenu.propTypes = {
   user: PropTypes.string,
   setUser: PropTypes.func,
+  setTheme: PropTypes.func
 }
 
 export default MainMenu

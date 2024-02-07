@@ -44,6 +44,12 @@ button:hover {
     border: 2px solid black;
 }
 
+.centered-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Navbar */
 .navbar-main-link {
     text-decoration: none;
