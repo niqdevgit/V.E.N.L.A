@@ -111,7 +111,6 @@ usersRouter.delete('/', async (request, response) => {
       if (result) {
         response.status(204).end()
       } else {
-        console.log("User not found")
         response.status(404).json({ error: 'User not found' })
       }
     })

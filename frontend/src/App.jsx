@@ -14,7 +14,7 @@ import ForgottenPassword from './components/forgottenPassword'
 import EditUser from './components/editUser'
 import Navbar from './components/navbar'
 import './style/app.css'
-import './style/dark.css'
+//import './style/dark.css'
 
 function App() {
   const defaultStyles = null

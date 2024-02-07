@@ -10,7 +10,20 @@ Live preview can be seen [here](https://venla.onrender.com/)
 
 Hours and devlog [Here](https://github.com/niqdevgit/V.E.N.L.A/blob/main/Hours%26Diary.md)
 
-App idea is to help you to pick food for female. 
+## App idea
+The app's idea is to help you pick food for female.
+
+## Usage instructions
+The usage of the app is kind of self-explanatory if you understand Finnish.
+If you do not speak Finnish, use a translation service.
+
+Main features include:
+  - Creating a user
+  - Changing user password
+  - Deleting a user
+  - Seeing globally picked foods
+  - Seeing own picked foods
+
 
 Here is a list of things i want to implement:
   * Basic FullStack stuff (frontend, backend, database)

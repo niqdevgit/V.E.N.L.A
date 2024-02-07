@@ -33,6 +33,10 @@ button:hover {
     margin-top: 6px;
 }
 
+.flex-box {
+    display: flex;
+    align-items: center;
+}
 .error-message {
     color: white;
     background-color: brown;
