@@ -9,6 +9,10 @@
 | 13 | 3 | Container work | [Link](#24.1.2024) |
 | 18 | 5 | More container work | [Link](#25.1.2024) |
 | 27 | 9 | Progress on multiple fronts | [Link](#29.1.2024) |
+| 32 | 5 | User and token handling | [Link](#31.1.2024) |
+| 43 | 11 | User remove, themes | [Link](#2.2.2024) |
+| 47 | 4 | User edit | [Link](#5.2.2024) |
+| 54 | 7 | Error handling and css | [Link](#6.2.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
@@ -37,3 +41,17 @@ Additionally, I made a minor change to my project title. Originally, I had the w
 I also identified a need for more planning in my food selection logic. My strategy of doing first and thinking later is proving not to be as effective as I had hoped. I will definitely dedicate some time to improving this aspect soon.
 
 Second also: I found out that my CI/CD pipeline has an issue. The render will take my build files from the latest commit. So, my build step in the pipeline is useless. Well, let's see if I can fix that. Kinda shame to realize I have made such an oversight. But I think this is called something like learning.
+
+## 31.1.2024
+I made progress on user handling on the backend. I included the authentication tokens as well. I began to work on frontend functionalities. Due to a lack of hours in a day, I will continue my work later.
+
+I had an interesting battle with Vite. The Vite builder made me an index.html file that had some SVG resource by default. I have cleared my project from default stuff, so I got a console error that it is missing. After a long and hard debugging battle, I managed to make the console error disappear. I have no idea how, and will the error return? We will see.
+
+## 2.2.2024
+Yesterday and mainly today (deja vu?), I worked on user and token stuff. Added theme skeleton. I feel like obsessing over small details is what is keeping me from achieving greatness. I found out that "faking it till making it" only goes so far. I mean that full-stack development is a huge bite to take at once. So using shortcuts and skipping error handling, for example, speeds the process nicely. The shadow side is that now I have a mess of code with a lack of structure and error handling. I think it's fine that I didn't get too stuck on important fundamentals, but on the other hand, it would be nice to work on a project which is more clear.
+
+## 5.2.2024
+Worked on a PUT request, now I can change users' passwords. Now I have all the "big concepts" working as intended. Now I can start to focus on polishing the features. I also had an interesting call today with my developer friend. I have wondered if I could do the AI implementation, or am I just dreaming. But apparently, it is not that hard or expensive.
+
+## 6.2.2024
+I added error handling to the backend and appropriate messaging to the frontend. I worked on CSS a lot. I'm not that competent in CSS, but I really enjoy working with it. I managed to create some kind of neo-brutalism style.

@@ -1,37 +1,46 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
-import loginService from '../services/login'
+import userService from '../services/user'
 import foodService from '../services/foods'
+import loginService from '../services/login'
 
-const SignInPage = ({setUser}) => {
+
+const SignUpPage = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('') 
     const [errorMessage, setErrorMessage] = useState(null)
     const navigate = useNavigate()
     
   
-  const handleLogin = async (event) => {
+  const handleSingUp = async (event) => {
     event.preventDefault()
     try {
-      const logginUser = await loginService.login({
+      await userService.singUp({
         username,
         password,
       })
 
+
+      const logginUser = await loginService.login({
+          username,
+          password,
+        })
+        
       window.localStorage.setItem(        
         'loggedappUser', JSON.stringify(logginUser)      
-      ) 
-      
-      setUser(logginUser.username)
-     
+      )
       foodService.setToken(logginUser.token)
       setUsername('')
       setPassword('')
       navigate('/')
       
     } catch (exception) {
-      setErrorMessage('Väärä käyttäjänimi tai salasana')
+      if(exception.response.status === 409){
+        setErrorMessage('Käyttäjänimi on jo käytössä')
+      } else {
+        setErrorMessage('Virhe tapahtui, uritä myöhemmin uudelleen')
+      }
       
       setTimeout(() => {
         setErrorMessage(null)
@@ -40,11 +49,9 @@ const SignInPage = ({setUser}) => {
     }
 
   return (
-    <div className="sign-in-page">
-      
-      
-      <form className='login-form' onSubmit={handleLogin}>
-      <h2>Kirjaudu sisään</h2>
+    <div className="sign-up-page">
+      <form className="login-form" onSubmit={handleSingUp}>
+      <h2>Luo tili</h2>
         <div>
           Käyttäjänimi
           <input
@@ -64,20 +71,18 @@ const SignInPage = ({setUser}) => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <div className="submit-button-error-box">
-        <button type="submit">Kirjaudu</button>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <button type="submit">Luo tili</button>
+        <p style={{ color: 'red' }} >{errorMessage}</p>
         </div>
       </form>
-      <button onClick={() => navigate('/luotili')}>Jos sinulla ei ole tiliä, Luo käyttäjä</button>
-      <button onClick={() => navigate('/unohtunutsalasana')}>Oletko unohtanut salasanasi?</button>
       <button onClick={() => navigate('/')}>Peruuta</button>
     </div>
   )
 }
 
-SignInPage.propTypes = {
+SignUpPage.propTypes = {
   setUser: PropTypes.func,
 }
 
-export default SignInPage
+export default SignUpPage;

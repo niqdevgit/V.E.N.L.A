@@ -41,7 +41,7 @@ const AnalyticsList = ({foods}) => {
 AnalyticsList.propTypes = {
     foods: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number,
+        id: PropTypes.string,
         food: PropTypes.string,
         date: PropTypes.string,
       })

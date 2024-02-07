@@ -21,16 +21,14 @@ const AnalyticsTable = ({foods}) =>{
                 <tr>
                     <th>Pitsa</th>
                     <th>Kebab</th>
-                    <th>tbd</th>
-                    <th>tbd</th>
+                    <th>Ranskalaiset</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>{foodCounts['Pitsa'] || 0}</td>
                     <td>{foodCounts['Kebab'] || 0}</td>
-                    <td>tbd</td>
-                    <td>tbd</td>
+                    <td>{foodCounts['Ranskalaiset'] || 0}</td>
                 </tr>
                 </tbody>
             </table>
