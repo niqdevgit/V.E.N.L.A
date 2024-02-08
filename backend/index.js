@@ -1,3 +1,4 @@
+const config = require('./utils/config')
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -16,11 +17,9 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/foods', foodsRouter)
 
-
-
 mongoose.set('strictQuery', false)
 console.log('connecting to mongo')
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(config.MONGODB_URI)
 
   .then(result => {
     console.log('connected to MongoDB')
@@ -43,7 +42,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
 
-const PORT = process.env.PORT || 3001
+const PORT = config.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })

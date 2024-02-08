@@ -2,6 +2,7 @@ const foodsRouter = require('express').Router()
 const Food = require('../models/food')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const config = require('../utils/config')
 
 const getTokenFrom = request => {  
     const authorization = request.get('authorization')  
@@ -14,7 +15,7 @@ const getTokenFrom = request => {
   foodsRouter.get('/', async (req, response) => {
     try {
       const decodedToken = jwt.verify(getTokenFrom(req),
-      process.env.JWT_SECRET)
+      config.JWT_SECRET)
       //if token included, return "data of the request user"
       if (decodedToken.username) {
         const userFoods = await Food.find({ user: decodedToken.id })
@@ -46,7 +47,7 @@ const getTokenFrom = request => {
   foodsRouter.post('/', async (req, res) => {
     const body = req.body
     const decodedToken = jwt.verify(getTokenFrom(req),
-    process.env.JWT_SECRET)
+    config.JWT_SECRET)
   
     if (!decodedToken.id) {
       return response.status(401).json({ error: 'token invalid' })  
