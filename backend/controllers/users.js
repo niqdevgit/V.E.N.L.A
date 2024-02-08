@@ -4,10 +4,7 @@ const Food = require('../models/food')
 const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
-  const users = await User
-    .find({}).populate('foods',{ food: 1, date: 1 })
-
-  response.json(users)
+  response.status(200).send("OK")
 })
 
 usersRouter.post('/', async (request, response) => {
