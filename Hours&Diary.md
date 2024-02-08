@@ -2,18 +2,18 @@
 
 | Sum hours | Hours| What done? | Diary link |
 | -------- | -------- | ------- | --------- |
-| 1 | 1 | Project initialization | [Link](##30.11.2023) |
-| 2 | 1 | skeleton done | [Link](##4.12.2023) |
-| 4 | 2 | Added router | [Link](##21.12.2023) |
-| 10 | 6 | CI/CD work | [Link](##21.1.2024) |
-| 13 | 3 | Container work | [Link](##24.1.2024) |
-| 18 | 5 | More container work | [Link](##25.1.2024) |
-| 27 | 9 | Progress on multiple fronts | [Link](##29.1.2024) |
-| 32 | 5 | User and token handling | [Link](##31.1.2024) |
-| 43 | 11 | User remove, themes | [Link](##2.2.2024) |
-| 47 | 4 | User edit | [Link](##5.2.2024) |
-| 54 | 7 | Error handling and css | [Link](##6.2.2024) |
-| 61 | 7 | Theme switching and lint | [Link](##7.2.2024) |
+| 1 | 1 | Project initialization | [Link](#30.11.2023) |
+| 2 | 1 | skeleton done | [Link](#4.12.2023) |
+| 4 | 2 | Added router | [Link](#21.12.2023) |
+| 10 | 6 | CI/CD work | [Link](#21.1.2024) |
+| 13 | 3 | Container work | [Link](#24.1.2024) |
+| 18 | 5 | More container work | [Link](#25.1.2024) |
+| 27 | 9 | Progress on multiple fronts | [Link](#29.1.2024) |
+| 32 | 5 | User and token handling | [Link](#31.1.2024) |
+| 43 | 11 | User remove, themes | [Link](#2.2.2024) |
+| 47 | 4 | User edit | [Link](#5.2.2024) |
+| 54 | 7 | Error handling and css | [Link](#6.2.2024) |
+| 61 | 7 | Theme switching and lint | [Link](#7.2.2024) |
 | | 0 | tbd | |
 
 ## 30.11.2023
