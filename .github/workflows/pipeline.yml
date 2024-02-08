@@ -40,7 +40,7 @@ jobs:
       - name: Start Backend
         run: |
           cd backend
-          MONGODB_URL=${{ secrets.MONGODB_URL }} SECRET=${{ secrets.SECRET }} npm run start &
+          HIDDEN=${{ secrets.HIDDEN }} npm run start &
           sleep 1
 
       - name: e2e tests
