@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && rm -rf ../backend/dist && cp -r ./dist ../backend",
+    "build": "vite build && rm -rf ../backend/dist/assets && rm ../backend/dist/index.html && cp -r ./dist ../backend",
     "build:container": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
