@@ -8,6 +8,11 @@ on:
       branches: [main]
       types: [opened, synchronize]
 
+env:
+  HIDDEN: ${{ secrets.HIDDEN }} 
+  MONGODB_URL: ${{ secrets.MONGODB_URL }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -40,7 +45,7 @@ jobs:
       - name: Start Backend
         run: |
           cd backend
-          HIDDEN=${{ secrets.HIDDEN }} MONGODB_URI=${{ secrets.MONGODB_URI }} npm run start &
+          npm run start &
           sleep 1
 
       - name: e2e tests
