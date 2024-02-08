@@ -113,7 +113,13 @@ const MainMenu = ({user,setUser, setTheme}) => {
             ) : (
                 <div>
                     <h1 ref={settingsPanelRef} className="main-menu-title">V.E.N.L.A</h1>
-                    <p ref={settingsButtonRef} className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> Valitsemaan Elintarvike Neidollesi Lyhyessä Ajassa</p>
+                    <p ref={settingsButtonRef} className="main-menu-text">Tervetuloa, tämä sovellus auttaa sinua <br></br> 
+                    <strong>V</strong>alitsemaan 
+                    <strong> E</strong>lintarvike
+                    <strong> N</strong>eidollesi
+                    <strong> L</strong>yhyessä
+                    <strong> A</strong>jassa
+                    </p>
                    
                     <button className="main-menu-button" onClick={() => navigate('/kirjaudu')}>Kirjaudu</button>
                     <button className="main-menu-button" onClick={() => navigate('/luotili')}>Luo käyttäjä</button>
