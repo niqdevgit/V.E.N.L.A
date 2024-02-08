@@ -45,6 +45,7 @@ foodsRouter.get('/', async (req, response) => {
   })
 
 foodsRouter.post('/', async (req, res) => {
+  try{
   const body = req.body
   const decodedToken = jwt.verify(getTokenFrom(req),
   config.JWT_SECRET)
@@ -70,6 +71,10 @@ foodsRouter.post('/', async (req, res) => {
   await user.save()
   
   res.json(savedFood)
+} catch (error) {
+  response.status(500).json({ error: error.message })
+  }
 })
+
 
 module.exports = foodsRouter
