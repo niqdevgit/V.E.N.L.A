@@ -14,7 +14,7 @@ const Analytics = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/foods")
+                const response = await axios.get("/api/foods")
                 setGlobalFoods(response.data.data)
             } catch (error) {
                 console.error('Error fetching food data:', error)
@@ -34,7 +34,7 @@ const Analytics = () => {
                 const config = {
                     headers: { Authorization: token },
                   }
-                const response = await axios.get("http://localhost:3001/api/foods",config)
+                const response = await axios.get("/api/foods",config)
 
     
                 setOwnFoods(response.data.data)

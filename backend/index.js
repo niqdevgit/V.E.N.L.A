@@ -13,9 +13,9 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const foodsRouter = require('./controllers/foods')
 
+app.use('/api/foods', foodsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
-app.use('/api/foods', foodsRouter)
 
 mongoose.set('strictQuery', false)
 console.log('connecting to mongo')
