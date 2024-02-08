@@ -23,10 +23,6 @@ return null
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
-//CI/CD pipeline debugger
-console.log("HIDDEN",process.env.HIDDEN)
-console.log("HIDDEN type:",typeof(process.env.HIDDEN))
-
 app.get('/api/foods', async (req, response) => {
   try {
     const decodedToken = jwt.verify(getTokenFrom(req),
