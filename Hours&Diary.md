@@ -14,6 +14,7 @@
 | 47 | 4 | User edit | [Link](#5-2-2024) |
 | 54 | 7 | Error handling and css | [Link](#6-2-2024) |
 | 61 | 7 | Theme switching and lint | [Link](#7-2-2024) |
+| 70 | 9 | Production and pwa | [Link](#8-2-2024) |
 | | 0 | tbd | |
 
 ## 30-11-2023
@@ -85,5 +86,22 @@ I had a legendary battle with the theme switcher. I wanted to use real CSS, not 
 IDK, this turned into a therapy session, but I need to get something off my chest. I feel like an impostor. I cannot make professional and robust solutions. I feel like all I ever develop are tape and glue solutions that get the job done, but are not the "correct" way to do. I soon start my first official developer job at a real company. Maybe seeing how "the real professionals" do it I get some confidence in me. And also I might learn "the one and only correct way" to do things.
 
 I also tried to deploy the app, no time today to debug it. 🙁
+
+[Back to top](#Hours-used)
+
+## 8-2-2024
+This time, dear reader, you get that live tweeting experience. You are welcome:
+
+I got my deployment working; I had an annoying typo there. I noticed that my published production version works great on PC, at least on Firefox. But the mobile experience does not work. I have no idea why. I'm guessing it might be something to do with mobile browsers' local storage? I hope this revelation does not crush my PWA dreams. We will see.
+
+Like I guessed, I found out that Chrome has kind of handy dev tools for mobile. Mobile has issues getting the CSS.
+
+I noticed a big mistake: I had my styles served on localhost. As I opened the production app, it got the styles from localhost. That's why mobile did not work. Next, I noticed that the render hosts the app on localhost:10000 and looks for resources from localhost:3001. Let's fix this.
+
+Full-stack debugging is weird. When you finally solve the issue, you feel like a mastermind who has just escaped the Matrix. On the other hand, a typo in the URL or wrong paths in the production environment make me question if I should switch professions to something more suitable for someone who barely passed the cube object to cube hole test.
+
+I had the privilege to have my mother-in-law candidate visit us at the same time I debugged the production version. I got valuable feedback from her. The "title" on the navbar works as great home button, according to her. There were suggestions on how to make the food picking tree more intuitive and clear for the user.
+
+Finally i tried to implement PWA functionality. I have a PWA obsession; it hurts my heart that they are not more common.
 
 [Back to top](#Hours-used)
