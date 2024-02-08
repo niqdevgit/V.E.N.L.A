@@ -26,10 +26,10 @@ Main features include:
 
 
 Here is a list of things i want to implement:
-  * Basic FullStack stuff (frontend, backend, database)
-  * Api Update and remove
-  * Login and user controll
-  * React router
+  * Basic FullStack stuff (frontend, backend, database) ✅
+  * Api Update and remove ✅
+  * Login and user controll ✅
+  * React router ✅
   * Ai api just for the hype
-  * Style will be Neo-Brutalism and dark theme
+  * Style will be Neo-Brutalism and dark theme ✅
   * Pwa functionality

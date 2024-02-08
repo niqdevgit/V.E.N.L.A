@@ -28,8 +28,6 @@ mongoose.connect(config.MONGODB_URI)
     console.log('error connecting to MongoDB:', error.message)
   })
 
-
-
 app.get('/styles/default.css', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'styles', 'default.css'))
 })
