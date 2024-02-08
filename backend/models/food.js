@@ -1,18 +1,5 @@
 const mongoose = require('mongoose')
 
-mongoose.set('strictQuery', false)
-
-
-console.log('connecting to mongo')
-mongoose.connect(process.env.MONGODB_URI)
-
-  .then(result => {
-    console.log('connected to MongoDB')
-  })
-  .catch((error) => {
-    console.log('error connecting to MongoDB:', error.message)
-  })
-
 const foodSchema = new mongoose.Schema({
   food: String,
   date: String,

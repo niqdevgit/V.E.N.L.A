@@ -108,8 +108,12 @@ button:hover {
 
 
 .main-menu-title {
-    font-size: 20vW;
+    font-size: 18dvw;
     margin: 20px;
+    background-color: lightblue;
+    padding: 3px;
+    border: 2px solid black;
+    text-align: center;
   }
 
 .user-setting-box {

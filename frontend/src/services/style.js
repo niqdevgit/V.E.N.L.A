@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/styles/'
+const baseUrl = '/styles/'
 
 
 const getDarkStyle = async () => {
