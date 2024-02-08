@@ -30,7 +30,7 @@ console.log("HIDDEN type:",typeof(process.env.HIDDEN))
 app.get('/api/foods', async (req, response) => {
   try {
     const decodedToken = jwt.verify(getTokenFrom(req),
-    process.env.SECRET)
+    process.env.JWT_SECRET)
     //if token included, return "data of the request user"
     if (decodedToken.username) {
       const userFoods = await Food.find({ user: decodedToken.id })
@@ -62,7 +62,7 @@ app.get('/api/foods', async (req, response) => {
 app.post('/api/foods', async (req, res) => {
   const body = req.body
   const decodedToken = jwt.verify(getTokenFrom(req),
-  process.env.SECRET)
+  process.env.JWT_SECRET)
 
   if (!decodedToken.id) {
     return response.status(401).json({ error: 'token invalid' })  
