@@ -8,25 +8,30 @@ const setToken = newToken => {
   token = `Bearer ${newToken}`
 }
 
-const getAll = () => {
+const getAll = async () => {
   if (process.env.NODE_ENV === 'development') {
-    const request = axios.get(baseDevUrl)
-    return request.data
+    const request = await axios.get(baseDevUrl)
+    return request.data.data
   } else {
-    const request = axios.get(baseUrl)
-    return request.data
+    const request = await axios.get(baseUrl)
+    return request.data.data
   }
 }
 
-const getUserFoods = () => {
+const getUserFoods = async () => {
+  const loggedUserJSON = window.localStorage.getItem('loggedappUser')
+  const user = JSON.parse(loggedUserJSON)
+  const token = `Bearer ${user.token}`
   const config = {
     headers: { Authorization: token },
   }
   
   if (process.env.NODE_ENV === 'development') {
-    return axios.get(baseDevUrl,config)
+    const request = await axios.get(baseDevUrl,config)
+    return request.data.data
   } else {
-    return axios.get(baseUrl,config)
+    const reguest = await axios.get(baseUrl,config)
+    return reguest.data.data
   }
 }
 
@@ -34,7 +39,7 @@ const create = newObject => {
   const config = {
     headers: { Authorization: token },
   }
-  
+
   if (process.env.NODE_ENV === 'development') {
     const request = axios.post(baseDevUrl, newObject, config)
   return request.data

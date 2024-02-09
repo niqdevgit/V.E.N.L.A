@@ -24,16 +24,17 @@ const AnalyticsList = ({foods}) => {
     return (
         <div>
             <button onClick={toggleSortOrder}>
-        {sortByDate ?  'Vanhin ensin' : 'Uusin ensin'}
-    </button>
-        <ul>
-            {sortedFoods.map(food => (
-                <div key={food.id}>
-                    <p>{food.food} {food.date}</p>
-                </div>
-            ))}
-        </ul>
-
+                {sortByDate ?  'Vanhin ensin' : 'Uusin ensin'}
+            </button>
+            <div className='scrollable-div'>
+                <ul>
+                    {sortedFoods.map(food => (
+                        <div key={food.id}>
+                            <p>{food.food} {food.date}</p>
+                        </div>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }
