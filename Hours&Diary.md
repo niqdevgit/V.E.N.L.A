@@ -15,6 +15,7 @@
 | 54 | 7 | Error handling and css | [Link](#6-2-2024) |
 | 61 | 7 | Theme switching and lint | [Link](#7-2-2024) |
 | 70 | 9 | Production and pwa | [Link](#8-2-2024) |
+| 77 | 7 | PWA and analytics | [Link](#9-2-2024) |
 | | 0 | tbd | |
 
 ## 30-11-2023
@@ -103,5 +104,11 @@ Full-stack debugging is weird. When you finally solve the issue, you feel like a
 I had the privilege to have my mother-in-law candidate visit us at the same time I debugged the production version. I got valuable feedback from her. The "title" on the navbar works as great home button, according to her. There were suggestions on how to make the food picking tree more intuitive and clear for the user.
 
 Finally i tried to implement PWA functionality. I have a PWA obsession; it hurts my heart that they are not more common.
+
+[Back to top](#Hours-used)
+
+## 9-2-2024
+
+Today, I used React Helmet to set the head of my page. This has been on my to-do list for a long time, but I finally implemented it. I also added development paths to my code to make development easier in the future. I really disliked the analytics page, so I made it more user-friendly to use.
 
 [Back to top](#Hours-used)

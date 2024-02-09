@@ -24,6 +24,9 @@ Main features include:
   - Seeing globally picked foods
   - Seeing own picked foods
 
+Remember to try the PWA version! 
+Use your phone's Chrome browser. Then, from the settings, select "Install."
+
 
 Here is a list of things i want to implement:
   * Basic FullStack stuff (frontend, backend, database) ✅
