@@ -14,6 +14,7 @@ import EditUser from './components/editUser'
 import Navbar from './components/navbar'
 import styleService from './services/style'
 import { createGlobalStyle } from 'styled-components'
+import PageHead from './components/react-helmet'
 
 function App() {
   const location = useLocation()
@@ -22,10 +23,6 @@ function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'default'
   })
-
-  useEffect(() => {
-    document.title = "V.E.N.L.A"
-  }, [])
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedappUser')
@@ -40,7 +37,16 @@ function App() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
- 
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = '/js/pwa.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   useEffect(() => {
   const getThemeStyles = async () => {
@@ -75,6 +81,7 @@ function App() {
 
   return (
     <div>
+      <PageHead />
       <GlobalStyle />
        {shouldRenderNavbar() && <Navbar />}
       <Routes>
@@ -87,8 +94,8 @@ function App() {
         <Route path='/tilastot' element={<Analytics user={user} setUser={setUser}/>} />
         <Route path="*" element={<NotFound />}/>
       </Routes>
+      
     </div>
-  
   )
 }
 
