@@ -76,5 +76,21 @@ foodsRouter.post('/', async (req, res) => {
   }
 })
 
+foodsRouter.delete('/', async (req, res) => {
+  try{
+  const body = req.body
+  const decodedToken = jwt.verify(getTokenFrom(req),
+  config.JWT_SECRET)
+
+  if (!decodedToken.id) {
+    return response.status(401).json({ error: 'token invalid' })  
+  }  
+
+
+  } catch (error) {
+    response.status(500).json({ error: error.message })
+  }
+
+})
 
 module.exports = foodsRouter

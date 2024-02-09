@@ -43,14 +43,13 @@ const AnalyticsList = ({foods}) => {
         const foodsWithEmoji = filteredFoods.map(food => ({
             ...food,
             foodWithEmoji: food.food + ' ' + addEmojiToFood(food.food)
-        }));
+        }))
 
         setFoodsWithEmoji(foodsWithEmoji)
     }, [foods, selectedFilter])
 
     const handleFilterChange = (event) => {
         setSelectedFilter(event.target.value)
-        console.log(event.target.value)
     }
 
     return (
