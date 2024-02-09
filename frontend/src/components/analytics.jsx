@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import AnalyticsTable from './analyticsTable'
 import AnalyticsList from './analyticsList'
 import foodService from '../services/foods'
