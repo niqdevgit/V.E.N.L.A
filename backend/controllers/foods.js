@@ -76,6 +76,7 @@ foodsRouter.post('/', async (req, res) => {
   }
 })
 
+/*
 foodsRouter.delete('/', async (req, res) => {
   try{
   const body = req.body
@@ -92,5 +93,6 @@ foodsRouter.delete('/', async (req, res) => {
   }
 
 })
+ */
 
 module.exports = foodsRouter
