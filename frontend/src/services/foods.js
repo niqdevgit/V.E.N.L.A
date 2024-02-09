@@ -1,5 +1,6 @@
 import axios from 'axios'
 const baseUrl = '/api/foods'
+const baseDevUrl = 'http://localhost:3001/api/foods'
 
 let token = null
 
@@ -7,16 +8,31 @@ const setToken = newToken => {
   token = `Bearer ${newToken}`
 }
 
-const getAll = () => {
-  const request = axios.get(baseUrl)
-  return request.data
+const getAll = async () => {
+  if (process.env.NODE_ENV === 'development') {
+    const request = await axios.get(baseDevUrl)
+    return request.data.data
+  } else {
+    const request = await axios.get(baseUrl)
+    return request.data.data
+  }
 }
 
-const getUserFoods = () => {
+const getUserFoods = async () => {
+  const loggedUserJSON = window.localStorage.getItem('loggedappUser')
+  const user = JSON.parse(loggedUserJSON)
+  const token = `Bearer ${user.token}`
   const config = {
     headers: { Authorization: token },
   }
-  return axios.get(baseUrl,config)
+  
+  if (process.env.NODE_ENV === 'development') {
+    const request = await axios.get(baseDevUrl,config)
+    return request.data.data
+  } else {
+    const reguest = await axios.get(baseUrl,config)
+    return reguest.data.data
+  }
 }
 
 const create = newObject => {
@@ -24,15 +40,15 @@ const create = newObject => {
     headers: { Authorization: token },
   }
 
-  const request = axios.post(baseUrl, newObject, config)
+  if (process.env.NODE_ENV === 'development') {
+    const request = axios.post(baseDevUrl, newObject, config)
   return request.data
-}
-
-const update = (id, newObject) => {
-  const request = axios.put(`${baseUrl}/${id}`, newObject)
+  } else {
+    const request = axios.post(baseUrl, newObject, config)
   return request.data
+  }
 }
 
 export default { 
-  getAll, create, update, setToken, getUserFoods
+  getAll, create, setToken, getUserFoods
 }
