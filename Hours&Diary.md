@@ -16,6 +16,7 @@
 | 61 | 7 | Theme switching and lint | [Link](#7-2-2024) |
 | 70 | 9 | Production and pwa | [Link](#8-2-2024) |
 | 77 | 7 | PWA and analytics | [Link](#9-2-2024) |
+| 79 | 2 | Testsing and clarity to readme | [Link](#14-2-2024) |
 | | 0 | tbd | |
 
 ## 30-11-2023
@@ -110,5 +111,11 @@ Finally i tried to implement PWA functionality. I have a PWA obsession; it hurts
 ## 9-2-2024
 
 Today, I used React Helmet to set the head of my page. This has been on my to-do list for a long time, but I finally implemented it. I also added development paths to my code to make development easier in the future. I really disliked the analytics page, so I made it more user-friendly to use.
+
+[Back to top](#Hours-used)
+
+## 14-2-2024
+
+I conducted some checks to ensure that my health check URL is functioning properly. Afterward, I made improvements to the readme.
 
 [Back to top](#Hours-used)
