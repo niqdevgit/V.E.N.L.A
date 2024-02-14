@@ -30,10 +30,10 @@ Remember to try the PWA version!
 Use your phone's Chrome browser. Then, from the settings, select "Install."
 In the images, my UI is in Finnish, but the icons remain the same.
 
-<div style="display: flex; flex-direction: row;">
-    <img src="img\pwa_installation1.png" alt="pwa install" style="height: auto;">
-    <img src="img\pwa_installation2.png" alt="pwa install" style="height: auto;">
-</div>
+
+<img src="img\pwa_installation1.png" alt="pwa install" style="width: 50%; height: auto;">
+<img src="img\pwa_installation2.png" alt="pwa install" style="width: 50%; height: auto;">
+
 
 Here is a list of things i want to implement:
   * Basic FullStack stuff (frontend, backend, database) ✅
