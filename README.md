@@ -10,6 +10,8 @@ Live preview can be seen [here](https://venla.onrender.com/)
 
 ⚠️Be aware that the Render service might be slow at times. You might have to wait up to 5 minutes for the webpage to load.⚠️
 
+See [local version](#local-version-installation) if render is not available.
+
 Hours and devlog [Here](https://github.com/niqdevgit/V.E.N.L.A/blob/main/Hours%26Diary.md)
 
 ## App idea
@@ -33,6 +35,19 @@ In the images, my UI is in Finnish, but the icons remain the same.
 
 <img src="img\pwa_installation1.png" alt="pwa install" style="width: 50%; height: auto;">
 <img src="img\pwa_installation2.png" alt="pwa install" style="width: 50%; height: auto;">
+
+
+## Local version installation
+
+clone this repository
+
+cd backend
+
+npm i 
+
+npm start
+
+go to http://localhost:3000
 
 
 Here is a list of things i want to implement:
