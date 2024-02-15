@@ -11,10 +11,10 @@ const setToken = newToken => {
 const getAll = async () => {
   if (process.env.NODE_ENV === 'development') {
     const request = await axios.get(baseDevUrl)
-    return request.data.data
+    return request.data
   } else {
     const request = await axios.get(baseUrl)
-    return request.data.data
+    return request.data
   }
 }
 
@@ -28,10 +28,10 @@ const getUserFoods = async () => {
   
   if (process.env.NODE_ENV === 'development') {
     const request = await axios.get(baseDevUrl,config)
-    return request.data.data
+    return request.data
   } else {
     const reguest = await axios.get(baseUrl,config)
-    return reguest.data.data
+    return reguest.data
   }
 }
 

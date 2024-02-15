@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-const AnalyticsList = ({foods}) => {
-
+const AnalyticsList = ({foods, foodStatus}) => {
+    console.log(foodStatus)
     const [sortByDate, setSortByDate] = useState(true)
     const [foodsWithEmoji, setFoodsWithEmoji] = useState([])
     const [selectedFilter, setSelectedFilter] = useState('default')
@@ -52,6 +52,10 @@ const AnalyticsList = ({foods}) => {
         setSelectedFilter(event.target.value)
     }
 
+    const handleDelete = (id) => {
+        console.log("delete pressed",id)
+    }
+
     return (
         <div>
             <div className='flex-box'>
@@ -71,6 +75,7 @@ const AnalyticsList = ({foods}) => {
                          <div key={food.id} className="food-item">
                          <p className="food-name">{food.foodWithEmoji}</p>
                          <p className="food-date">{food.date}</p>
+                         {foodStatus === 'solo' && <p className="food-id"><button onClick={() => handleDelete(food.id)} className='scroll-list-button'>Poista tämä merkintä</button></p>}
                      </div>
                     ))}
                 </ul>
