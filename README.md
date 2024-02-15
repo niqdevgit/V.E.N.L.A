@@ -33,8 +33,8 @@ Use your phone's Chrome browser. Then, from the settings, select "Install."
 In the images, my UI is in Finnish, but the icons remain the same.
 
 
-<img src="img\pwa_installation1.png" alt="pwa install" style="width: 50%; height: auto;">
-<img src="img\pwa_installation2.png" alt="pwa install" style="width: 50%; height: auto;">
+<img src="img\pwainstallation1.png" alt="To install the PWA, click on the three dots in the upper right corner." style="width: 50%; height: auto;">
+<img src="img\pwainstallation2.png" alt="To install the PWA, select 'Install' from the menu." style="width: 50%; height: auto;">
 
 
 ## Local version installation
@@ -51,10 +51,11 @@ go to http://localhost:3000
 
 
 ## Here is a list of things i want to implement:
+(checkmark means done)
   * Basic FullStack stuff (frontend, backend, database) ✅
   * Api Update and remove ✅
-  * Login and user controll ✅
+  * Login and user control ✅
   * React router ✅
-  * Ai api just for the hype
+  * Ai API just for the hype
   * Style will be Neo-Brutalism and dark theme ✅
-  * Pwa functionality ✅
+  * PWA functionality ✅

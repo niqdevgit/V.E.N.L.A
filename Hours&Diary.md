@@ -16,7 +16,7 @@
 | 61 | 7 | Theme switching and lint | [Link](#7-2-2024) |
 | 70 | 9 | Production and pwa | [Link](#8-2-2024) |
 | 77 | 7 | PWA and analytics | [Link](#9-2-2024) |
-| 79 | 2 | Testsing and clarity to readme | [Link](#14-2-2024) |
+| 79 | 2 | Functional testing and clarity to readme | [Link](#14-2-2024) |
 | | 0 | tbd | |
 
 ## 30-11-2023
