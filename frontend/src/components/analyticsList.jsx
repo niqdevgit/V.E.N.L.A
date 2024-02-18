@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import foodService from '../services/foods'
 
-const AnalyticsList = ({foods, foodStatus}) => {
-    console.log(foodStatus)
+const AnalyticsList = ({foods, foodStatus, setDeletionHappened}) => {
     const [sortByDate, setSortByDate] = useState(true)
     const [foodsWithEmoji, setFoodsWithEmoji] = useState([])
     const [selectedFilter, setSelectedFilter] = useState('default')
@@ -52,8 +52,9 @@ const AnalyticsList = ({foods, foodStatus}) => {
         setSelectedFilter(event.target.value)
     }
 
-    const handleDelete = (id) => {
-        console.log("delete pressed",id)
+    const handleDelete = async (id) => {
+        foodService.remove({id})
+        await setDeletionHappened(true)
     }
 
     return (

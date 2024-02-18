@@ -11,6 +11,8 @@ const Analytics = () => {
     const [foodStatus, setFoodStatus] = useState('global')
     const [foodOwnStatus, setOwnFoodStatus] = useState('')
     const [foodGlobalStatus, setGlobalFoodStatus] = useState('')
+    const [deletionHappened, setDeletionHappened] = useState(false)
+    
     
     //global stats
     useEffect(() => {
@@ -26,7 +28,6 @@ const Analytics = () => {
         fetchData()
     }, [])
     
-    
     //personal stats
     useEffect(() => {
         const fetchData = async () => {
@@ -39,25 +40,27 @@ const Analytics = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [deletionHappened])
     
     
     
-    useEffect(() => {
+    
+    useEffect(() =>  {
         setFoods(globalStats ? globalFoods : ownFoods)
         setFoodStatus(globalStats ? foodGlobalStatus : foodOwnStatus)
-    }, [globalStats, globalFoods, ownFoods, foodStatus])
+    }, [globalStats, globalFoods, ownFoods, foodStatus, foodGlobalStatus, foodOwnStatus])
     
     const toggleSoloGLobal = () => {
         setGlobalStats(!globalStats)
     }
+
     return (
     <div>
         <button onClick={toggleSoloGLobal}>Vaihda</button>
     <p>{globalStats ?  'Näät globaalit tilastot' : 'Näät omat tilastot'}</p>
         <AnalyticsTable foods={foods}/>
         <br></br>
-        <AnalyticsList foods={foods} foodStatus={foodStatus}/> 
+        <AnalyticsList foods={foods} foodStatus={foodStatus} setDeletionHappened={setDeletionHappened}/> 
     </div>
     )
 }

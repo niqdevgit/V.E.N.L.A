@@ -49,6 +49,21 @@ const create = newObject => {
   }
 }
 
+const remove = id => {
+  const config = {
+    headers: { Authorization: token },
+    data:  id
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    const request = axios.delete(baseDevUrl, config)
+  return request.data
+  } else {
+    const request = axios.delete(baseUrl, config)
+  return request.data
+  }
+}
+
 export default { 
-  getAll, create, setToken, getUserFoods
+  getAll, create, setToken, remove, getUserFoods
 }
