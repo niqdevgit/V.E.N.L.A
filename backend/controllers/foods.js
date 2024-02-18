@@ -4,6 +4,7 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 const config = require('../utils/config')
 
+
 const getTokenFrom = request => {  
     const authorization = request.get('authorization')  
     if (authorization && authorization.startsWith('Bearer ')) {    
@@ -76,7 +77,7 @@ foodsRouter.post('/', async (req, res) => {
   }
 })
 
-/*
+
 foodsRouter.delete('/', async (req, res) => {
   try{
   const body = req.body
@@ -84,15 +85,39 @@ foodsRouter.delete('/', async (req, res) => {
   config.JWT_SECRET)
 
   if (!decodedToken.id) {
-    return response.status(401).json({ error: 'token invalid' })  
+    return res.status(401).json({ error: 'token invalid' })  
   }  
 
+  if (body.id === undefined) {
+    return res.status(400).json({ error: 'id missing' })
+  }
+
+  const foodToDelete = await Food.findById(body.id)
+    
+  if (!foodToDelete) {
+    return res.status(404).json({ error: 'Food not found' })
+  }
+
+  const user = await User.findById(decodedToken.id)
+  const food = await Food.findById(body.id)
+
+  if (food.user.equals(user._id)) {
+    try {
+      await Food.findByIdAndDelete(body.id)
+      await User.findByIdAndUpdate(user._id, {$pull: {foods: food._id}})
+      res.status(204).end()
+    }catch {
+      res.status(500).json({ error: error.message })
+    }
+  } else {
+    return res.status(403).json({error : 'You can only delete own foods'})
+  }
 
   } catch (error) {
-    response.status(500).json({ error: error.message })
+    res.status(500).json({ error: error.message })
   }
 
 })
- */
+ 
 
 module.exports = foodsRouter
