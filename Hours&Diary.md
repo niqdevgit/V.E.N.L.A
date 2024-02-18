@@ -18,6 +18,7 @@
 | 77 | 7 | PWA and analytics | [Link](#9-2-2024) |
 | 79 | 2 | Functional testing and clarity to readme | [Link](#14-2-2024) |
 | 81 | 2 | Frontend food delete | [Link](#15-2-2024) |
+| 86 | 5 | Food delete e2e | [Link](#18-2-2024) |
 | | 0 | tbd | |
 
 ## 30-11-2023
@@ -124,5 +125,11 @@ I conducted some checks to ensure that my health check URL is functioning proper
 ## 15-2-2024
 
 I began work on deleting users' own food entry.
+
+[Back to top](#Hours-used)
+
+## 18-2-2024
+
+I successfully implemented food deletion functionality in both the frontend and backend. It now functions as intended.
 
 [Back to top](#Hours-used)
