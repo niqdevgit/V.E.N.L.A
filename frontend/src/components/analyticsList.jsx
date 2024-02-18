@@ -94,7 +94,9 @@ AnalyticsList.propTypes = {
         food: PropTypes.string,
         date: PropTypes.string,
       })
-    )
+    ),
+    foodStatus: PropTypes.string,
+    setDeletionHappened: PropTypes.func
   }
 
 export default AnalyticsList
