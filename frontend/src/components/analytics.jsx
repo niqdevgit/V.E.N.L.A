@@ -35,6 +35,7 @@ const Analytics = () => {
                 const foods = await foodService.getUserFoods()
                 setOwnFoods(foods.data)
                 setOwnFoodStatus(foods.status)
+                setDeletionHappened(false)
             } catch (error) {
                 console.error('Error fetching food data:', error)
             }

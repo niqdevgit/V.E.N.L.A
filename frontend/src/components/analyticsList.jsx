@@ -53,8 +53,10 @@ const AnalyticsList = ({foods, foodStatus, setDeletionHappened}) => {
     }
 
     const handleDelete = async (id) => {
-        foodService.remove({id})
-        await setDeletionHappened(true)
+        await foodService.remove({id})
+        setTimeout(() => {
+            setDeletionHappened(true)
+        }, 500)
     }
 
     return (
