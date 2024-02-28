@@ -1,3 +1,4 @@
+![example workflow](https://github.com/niqdevgit/V.E.N.L.A/actions/workflows/pipeline.yml/badge.svg)
 # V.E.N.L.A
 FullStackOpen course project work
 
@@ -56,6 +57,6 @@ go to http://localhost:3000
   * Api Update and remove ✅
   * Login and user control ✅
   * React router ✅
-  * Ai API just for the hype
+  * Ai API just for the hype ❌
   * Style will be Neo-Brutalism and dark theme ✅
   * PWA functionality ✅
