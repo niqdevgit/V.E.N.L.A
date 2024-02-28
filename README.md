@@ -1,5 +1,7 @@
-![example workflow](https://github.com/niqdevgit/V.E.N.L.A/actions/workflows/pipeline.yml/badge.svg)
 # V.E.N.L.A
+
+![workflow](https://github.com/niqdevgit/V.E.N.L.A/actions/workflows/pipeline.yml/badge.svg)
+
 FullStackOpen course project work
 
 _Project will be documented and made in english.
