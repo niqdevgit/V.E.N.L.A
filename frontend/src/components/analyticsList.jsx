@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import foodService from '../services/foods'
 
-const AnalyticsList = ({foods}) => {
-
+const AnalyticsList = ({foods, foodStatus, setDeletionHappened}) => {
     const [sortByDate, setSortByDate] = useState(true)
     const [foodsWithEmoji, setFoodsWithEmoji] = useState([])
     const [selectedFilter, setSelectedFilter] = useState('default')
@@ -52,6 +52,13 @@ const AnalyticsList = ({foods}) => {
         setSelectedFilter(event.target.value)
     }
 
+    const handleDelete = async (id) => {
+        await foodService.remove({id})
+        setTimeout(() => {
+            setDeletionHappened(true)
+        }, 500)
+    }
+
     return (
         <div>
             <div className='flex-box'>
@@ -71,6 +78,7 @@ const AnalyticsList = ({foods}) => {
                          <div key={food.id} className="food-item">
                          <p className="food-name">{food.foodWithEmoji}</p>
                          <p className="food-date">{food.date}</p>
+                         {foodStatus === 'solo' && <p className="food-id"><button onClick={() => handleDelete(food.id)} className='scroll-list-button'>Poista tämä merkintä</button></p>}
                      </div>
                     ))}
                 </ul>
@@ -86,7 +94,9 @@ AnalyticsList.propTypes = {
         food: PropTypes.string,
         date: PropTypes.string,
       })
-    )
+    ),
+    foodStatus: PropTypes.string,
+    setDeletionHappened: PropTypes.func
   }
 
 export default AnalyticsList
