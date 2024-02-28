@@ -62,3 +62,7 @@ go to http://localhost:3000
   * Ai API just for the hype ❌
   * Style will be Neo-Brutalism and dark theme ✅
   * PWA functionality ✅
+
+
+## Known bugs:
+  * Pressing the title on the left-hand side causes the menu to flicker as it closes.

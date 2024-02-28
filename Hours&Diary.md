@@ -19,6 +19,7 @@
 | 79 | 2 | Functional testing and clarity to readme | [Link](#14-2-2024) |
 | 81 | 2 | Frontend food delete | [Link](#15-2-2024) |
 | 86 | 5 | Food delete e2e | [Link](#18-2-2024) |
+| 88 | 2 | Final touches for grading | [Link](#28-2-2024) |
 | | 0 | tbd | |
 
 ## 30-11-2023
@@ -131,5 +132,13 @@ I began work on deleting users' own food entry.
 ## 18-2-2024
 
 I successfully implemented food deletion functionality in both the frontend and backend. It now functions as intended.
+
+[Back to top](#Hours-used)
+
+## 28-2-2024
+
+Final touches and checks done. Added badge for pipeline in readme. I noticed that many other projects on GitHub include badges for various purposes, such as testing coverage or other metrics. I could add similar badges to enhance the professional appearance of my project. I also realized that the AI API could be too much right now, maybe something to do later. Due to my academic situation, I will need only 5 ECTS from this project, so I will hand this in for grading.
+
+_~It's been a fun ride. Will this be goodbye? No. It's never goodbye. It's till we meet again. If not in this lifeform, maybe on other~_
 
 [Back to top](#Hours-used)
